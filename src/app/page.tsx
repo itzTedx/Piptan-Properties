@@ -1,3 +1,4 @@
+import { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -202,7 +203,7 @@ export default async function Page() {
 						<Button
 							className="absolute -right-6 -bottom-5 [a]:hover:bg-white [a]:hover:text-stone-900"
 							nativeButton={false}
-							render={<Link href={data.location.map} />}
+							render={<Link href={data.location.map as Route} />}
 							size="lg"
 						>
 							View on Google Maps

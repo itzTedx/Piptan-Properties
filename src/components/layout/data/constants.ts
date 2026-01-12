@@ -23,7 +23,7 @@ export const NAV_LINKS = [
 		title: "Contact",
 		href: "https://www.piptan.ae/contact",
 	},
-];
+] as const;
 
 export const CONTACT = [
 	{
@@ -37,4 +37,4 @@ export const CONTACT = [
 		title: " invest@piptan.com",
 		href: "mailto:invest@piptan.com",
 	},
-];
+] as const;

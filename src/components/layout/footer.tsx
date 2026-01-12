@@ -172,14 +172,20 @@ export const Footer = async () => {
 					</div>
 					<nav aria-label="Legal links" className="shrink-0">
 						<div className="flex items-center gap-3">
-							<Link aria-label="Terms   " href="/legal/terms-of-service">
+							<Link
+								aria-label="Terms of services"
+								href="https://www.piptan.ae/legal/terms-of-service"
+							>
 								Terms of Service
 							</Link>
 							<span
 								aria-hidden="true"
 								className="block size-1.5 rounded-full bg-muted-foreground"
 							/>
-							<Link aria-label="Privacy Policy" href="/legal/privacy">
+							<Link
+								aria-label="Privacy Policy"
+								href="https://www.piptan.ae/legal/privacy"
+							>
 								Privacy policy
 							</Link>
 						</div>
