@@ -14,10 +14,10 @@ export default async function Page() {
 
 	return (
 		<main className="bg-stone-950 text-stone-100">
-			<header className="fixed left-1/2 z-999 -translate-x-1/2 rounded-b-xl bg-stone-950 px-8 py-3 text-white shadow-sm">
+			<header className="fixed left-1/2 z-999 w-[90%] -translate-x-1/2 rounded-b-xl bg-stone-950 px-4 py-3 text-white shadow-sm sm:w-auto sm:px-8">
 				<nav>
-					<ul className="flex items-center gap-6 font-medium">
-						<li className="mr-6 font-display">
+					<ul className="flex items-center gap-6 font-medium sm:justify-center">
+						<li className="mr-6 shrink-0 whitespace-nowrap text-nowrap font-display">
 							<Link href="/oasis">
 								<span>The Oasis</span>{" "}
 								<span className="text-[8px]"> by EMAAR</span>
@@ -25,13 +25,13 @@ export default async function Page() {
 						</li>
 						{data.sections.map((nav) => (
 							<li
-								className="font-display capitalize transition-colors hover:text-yellow-500"
+								className="hidden font-display capitalize transition-colors hover:text-yellow-500 sm:block"
 								key={nav.slug}
 							>
 								<Link href={`#${nav.slug}`}>{nav.title}</Link>
 							</li>
 						))}
-						<li className="ml-6">
+						<li className="ml-auto sm:ml-6">
 							<Button className="relative inset-shadow-sm inset-shadow-white/50 z-10 overflow-hidden bg-yellow-500 px-3 font-semibold text-yellow-950 after:absolute after:inset-0 after:z-0 after:bg-linear-to-t after:from-yellow-600">
 								<span className="relative z-10">Download Brochure</span>
 							</Button>
@@ -39,11 +39,12 @@ export default async function Page() {
 					</ul>
 				</nav>
 			</header>
+
 			<section className="relative h-svh">
 				<div className="container relative z-20 mx-auto flex h-full flex-col items-start justify-end text-white">
-					<div className="flex w-full items-center justify-between py-16">
-						<div>
-							<h1 className="mb-6 font-display text-8xl text-shadow-black/30 text-shadow-md">
+					<div className="flex w-full flex-col items-start justify-between gap-8 py-12 md:flex-row md:items-center md:py-16">
+						<div className="space-y-4">
+							<h1 className="mb-4 font-display text-5xl text-shadow-black/30 text-shadow-md sm:mb-6 sm:text-6xl md:text-8xl">
 								{data.title}
 							</h1>
 							<Button className="bg-white text-stone-900" size="lg">
@@ -52,18 +53,18 @@ export default async function Page() {
 						</div>
 						<ul className="grid grid-cols-2 overflow-hidden rounded-md">
 							<li className="flex flex-col justify-between bg-white p-4 text-stone-900">
-								<h2 className="shrink-0 text-nowrap font-display font-medium text-3xl">
+								<h2 className="shrink-0 text-nowrap font-display font-medium text-2xl sm:text-3xl">
 									3, 4 & 5 BR
 								</h2>
 								<p className="font-medium">Elite Villas, Prime Location</p>
 								<span>Limited Availability</span>
 							</li>
 							<li className="text-nowrap bg-stone-950 p-4 text-stone-100">
-								<h2 className="font-display font-medium text-4xl tracking-wider">
+								<h2 className="font-display font-medium text-3xl tracking-wider sm:text-4xl">
 									10/70/20
 								</h2>
 								<p className="font-light">Payment Plan</p>
-								<span className="mt-12 block">
+								<span className="mt-8 block sm:mt-12">
 									Starting Price <br /> Upon Request
 								</span>
 							</li>
@@ -71,11 +72,21 @@ export default async function Page() {
 					</div>
 				</div>
 				<div className="absolute inset-x-0 bottom-0 z-10 h-[65%] bg-linear-to-t from-stone-950" />
-				<Image alt={data.title} className="obect-cover" fill src={data.image} />
+				<Image
+					alt={data.title}
+					className="object-cover"
+					fill
+					src={data.image}
+				/>
 			</section>
-			<section className="container mx-auto py-12">
-				<h2 className="font-display font-medium text-4xl">Amenities</h2>
-				<p className="font-medium text-xl leading-relaxed">
+			<section
+				className="container mx-auto px-4 py-12 sm:px-6 lg:px-8"
+				id="amenities"
+			>
+				<h2 className="font-display font-medium text-3xl sm:text-4xl">
+					Amenities
+				</h2>
+				<p className="mt-4 font-medium text-lg leading-relaxed sm:text-xl">
 					The Oasis by Emaar presents a wealth of amenities designed to enrich
 					resident's lives and foster a vibrant community atmosphere. Within
 					this expansive master community, residents have access to beautifully
@@ -84,7 +95,7 @@ export default async function Page() {
 					a central location, leisure and exploration are effortlessly woven
 					into daily life.
 				</p>
-				<ul className="mt-12 grid grid-cols-4 gap-4">
+				<ul className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
 					<li>
 						<h3 className="font-display font-medium text-2xl">
 							100 million sq ft
@@ -109,8 +120,20 @@ export default async function Page() {
 					</li>
 				</ul>
 			</section>
+			<section id="videos">
+				<video
+					autoPlay
+					className="aspect-video"
+					crossOrigin="anonymous"
+					loop
+					muted
+					slot="media"
+					src="/images/oasis/the-oasis.webm"
+					title="Intro Video"
+				/>
+			</section>
 			<section
-				className="container mx-auto grid grid-cols-[0.75fr_1fr] gap-12 py-12 sm:py-16 md:py-20"
+				className="container mx-auto grid grid-cols-1 gap-8 px-4 py-12 sm:gap-12 sm:px-6 sm:py-16 md:py-20 lg:grid-cols-[0.75fr_1fr] lg:px-8"
 				id={data.about.slug}
 			>
 				<div className="relative aspect-5/3 overflow-hidden rounded-xl">
@@ -122,10 +145,12 @@ export default async function Page() {
 					/>
 				</div>
 				<div>
-					<h2 className="mb-2 font-bold font-display text-4xl">
+					<h2 className="mb-2 font-bold font-display text-3xl sm:text-4xl">
 						{data.about.title}
 					</h2>
-					<p className="mb-6 font-light text-xl">{data.about.description}</p>
+					<p className="mb-6 font-light text-base sm:text-xl">
+						{data.about.description}
+					</p>
 					<Button
 						className="relative inset-shadow-sm inset-shadow-white/50 z-10 overflow-hidden bg-yellow-500 px-3 font-semibold text-yellow-950 after:absolute after:inset-0 after:z-0 after:bg-linear-to-t after:from-yellow-700"
 						size="lg"
@@ -134,18 +159,17 @@ export default async function Page() {
 					</Button>
 				</div>
 			</section>
-
 			<section className="bg-card py-12 sm:py-16 md:py-20">
-				<div className="container mx-auto grid grid-cols-[1fr_0.6fr] gap-6 text-stone-900">
-					<div className="sticky top-20 h-fit">
+				<div className="container mx-auto grid grid-cols-1 gap-8 px-4 text-stone-900 sm:gap-6 sm:px-6 lg:grid-cols-[1fr_0.6fr] lg:px-8">
+					<div className="h-fit lg:sticky lg:top-20">
 						<Badge>{data.paymentPlan.title}</Badge>
-						<h2 className="mt-4 font-display font-medium text-5xl tracking-tight">
+						<h2 className="mt-4 font-display font-medium text-4xl tracking-tight sm:text-5xl">
 							Payment Plan
 						</h2>
 						<p className="mt-6 max-w-prose text-muted-foreground">
 							{data.paymentPlan.description}
 						</p>
-						<div className="mt-9 flex gap-3">
+						<div className="mt-9 flex flex-wrap gap-3">
 							<Button>
 								Request Payment Plan <IconArrowRight className="size-3" />
 							</Button>
@@ -155,10 +179,10 @@ export default async function Page() {
 					<ul className="flex flex-col gap-3">
 						{data.paymentPlan.lists.map((list) => (
 							<li
-								className="grid grid-cols-2 gap-3 rounded-lg p-6 text-amber-950 odd:bg-amber-50"
+								className="grid grid-cols-1 gap-3 rounded-lg p-6 text-amber-950 odd:bg-amber-50 sm:grid-cols-2"
 								key={list.label}
 							>
-								<h3 className="font-display font-medium text-5xl">
+								<h3 className="font-display font-medium text-4xl sm:text-5xl">
 									{list.value}
 								</h3>
 								<div>
@@ -172,9 +196,9 @@ export default async function Page() {
 					</ul>
 				</div>
 			</section>
-			<section className="container mx-auto py-12 sm:py-16 md:py-20">
+			<section className="container mx-auto px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
 				<Badge className="bg-white text-stone-900">Gallery</Badge>
-				<div className="mt-12 grid grid-cols-3 gap-6">
+				<div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{data.gallery.map((img) => (
 						<div
 							className="relative aspect-5/3 overflow-hidden rounded-md"
@@ -185,11 +209,14 @@ export default async function Page() {
 					))}
 				</div>
 			</section>
-			<section className="py-12 sm:py-16 md:py-20" id={data.location.slug}>
+			<section
+				className="px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8"
+				id={data.location.slug}
+			>
 				<div className="container mx-auto max-w-7xl">
 					<Badge className="bg-white px-6 text-stone-900">Location</Badge>
-					<div className="mt-4 grid grid-cols-2 gap-6">
-						<h2 className="font-display font-medium text-5xl">
+					<div className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
+						<h2 className="font-display font-medium text-4xl sm:text-5xl">
 							{data.location.title}
 						</h2>
 						<p className="font-light text-lg text-white/80">
@@ -201,7 +228,7 @@ export default async function Page() {
 							<Image alt="" fill src={data.location.image} />
 						</div>
 						<Button
-							className="absolute -right-6 -bottom-5 [a]:hover:bg-white [a]:hover:text-stone-900"
+							className="absolute right-4 -bottom-5 sm:-right-6 [a]:hover:bg-white [a]:hover:text-stone-900"
 							nativeButton={false}
 							render={<Link href={data.location.map as Route} />}
 							size="lg"
@@ -209,10 +236,10 @@ export default async function Page() {
 							View on Google Maps
 						</Button>
 					</div>
-					<ul className="mx-auto mt-12 grid max-w-5xl grid-cols-4 gap-12">
+					<ul className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-8 sm:gap-12 lg:grid-cols-4">
 						{data.location.lists.map((list) => (
 							<li className="text-center" key={list.title}>
-								<h3 className="mb-2 font-display font-medium text-4xl">
+								<h3 className="mb-2 font-display font-medium text-3xl sm:text-4xl">
 									{list.value}
 								</h3>
 								<p className="font-light">{list.title}</p>

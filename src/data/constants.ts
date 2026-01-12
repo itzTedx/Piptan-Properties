@@ -43,6 +43,14 @@ export const OASIS = {
 
 	sections: [
 		{
+			slug: "amenities",
+			title: "Amenities",
+		},
+		{
+			slug: "videos",
+			title: "Videos",
+		},
+		{
 			slug: "about",
 			title: "About",
 		},
@@ -71,6 +79,7 @@ export const OASIS = {
 		Enjoy seamless indoor-outdoor living, complemented by an abundance of world-class amenities. The Oasis by Emaar is more than just refined waterfront living; it’s the epitome of elegance and comfort, with every moment a celebration of life. Enjoy the luxury of personalised services that cater to your every need, making every day an occasion for indulgence and relaxation. Unwind in style amidst meticulously crafted interiors that inspire and invigorate. Your journey to unparalleled sophistication begins now at Emaar’s The Oasis. Welcome home to a lifestyle of effortless luxury and timeless charm.`,
 	},
 	paymentPlan: {
+		slug: "price",
 		title: "Emaar Oasis",
 		description:
 			"Emaar Grand Polo Club by Emaar Properties in Dubai offers an investor-friendly 10/70/20 payment plan, securing luxury villas with just 10% down payment on booking. Pay 70% during construction across flexible milestones until 2028, and settle the final 20% on handover in May 2029.",
