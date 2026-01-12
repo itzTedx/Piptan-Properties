@@ -207,7 +207,12 @@ export default async function Page() {
 							className="relative aspect-5/3 overflow-hidden rounded-md"
 							key={img.src}
 						>
-							<Image alt="" className="object-cover" fill src={img.src} />
+							<Image
+								alt=""
+								className="object-cover transition-transform hover:scale-105"
+								fill
+								src={img.src}
+							/>
 						</div>
 					))}
 				</div>
