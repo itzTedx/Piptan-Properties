@@ -266,7 +266,7 @@ export const GRAND_POLO = {
 	},
 	location: {
 		slug: "location",
-		image: "/oasis/location.webp",
+		image: "/grand-polo/location.webp",
 		map: "https://goo.gl/maps/ZeMex4J4XjZ2hKsw5",
 		title: "Prime Location of Emaar Grand Polo",
 		description:
