@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
 		ignoreBuildErrors: true,
 	},
 
+	images: {
+		qualities: [85, 100],
+	},
+
 	experimental: {
 		// Enable filesystem caching for `next dev`
 		turbopackFileSystemCacheForDev: true,

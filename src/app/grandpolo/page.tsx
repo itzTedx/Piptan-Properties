@@ -2,15 +2,17 @@ import { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { BrouchreDownloadButton } from "@/components/brochure-download-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 import { IconArrowRight } from "@/assets/icons/arrows";
+import { GrandPoloLogo } from "@/assets/logos/grand-polo";
 
-import { OASIS } from "@/data/constants";
+import { GRAND_POLO } from "@/data/constants";
 
 export default async function Page() {
-	const data = OASIS;
+	const data = GRAND_POLO;
 
 	return (
 		<main className="bg-stone-950 text-stone-100">
@@ -19,8 +21,7 @@ export default async function Page() {
 					<ul className="flex items-center gap-6 font-medium sm:justify-center">
 						<li className="mr-6 shrink-0 whitespace-nowrap text-nowrap font-display">
 							<Link href="/oasis">
-								<span>The Oasis</span>{" "}
-								<span className="text-[8px]"> by EMAAR</span>
+								<GrandPoloLogo className="h-7 w-auto md:h-9" />
 							</Link>
 						</li>
 						{data.sections.map((nav) => (
@@ -32,9 +33,7 @@ export default async function Page() {
 							</li>
 						))}
 						<li className="ml-auto sm:ml-6">
-							<Button className="relative inset-shadow-sm inset-shadow-white/50 z-10 overflow-hidden bg-yellow-500 px-3 font-semibold text-yellow-950 after:absolute after:inset-0 after:z-0 after:bg-linear-to-t after:from-yellow-600">
-								<span className="relative z-10">Download Brochure</span>
-							</Button>
+							<BrouchreDownloadButton />
 						</li>
 					</ul>
 				</nav>
@@ -61,7 +60,7 @@ export default async function Page() {
 							</li>
 							<li className="text-nowrap bg-stone-950 p-4 text-stone-100">
 								<h2 className="font-display font-medium text-3xl tracking-wider sm:text-4xl">
-									10/70/20
+									80/20
 								</h2>
 								<p className="font-light">Payment Plan</p>
 								<span className="mt-8 block sm:mt-12 md:mt-20">
@@ -76,6 +75,8 @@ export default async function Page() {
 					alt={data.title}
 					className="object-cover"
 					fill
+					quality={100}
+					sizes="100vw"
 					src={data.image}
 				/>
 			</section>
@@ -84,51 +85,31 @@ export default async function Page() {
 				id="amenities"
 			>
 				<h2 className="font-display font-medium text-3xl sm:text-4xl">
-					Amenities
+					{data.amenities.title}
 				</h2>
 				<p className="mt-4 font-medium text-lg leading-relaxed sm:text-xl">
-					The Oasis by Emaar presents a wealth of amenities designed to enrich
-					resident's lives and foster a vibrant community atmosphere. Within
-					this expansive master community, residents have access to beautifully
-					landscaped parks, jogging tracks, and local mosques, offering serene
-					spaces for relaxation. With convenient access to pristine beaches and
-					a central location, leisure and exploration are effortlessly woven
-					into daily life.
+					{data.amenities.description}
 				</p>
-				<ul className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
-					<li>
-						<h3 className="font-display font-medium text-2xl">
-							100 million sq ft
-						</h3>
-						<p className="font-light text-white/70">Total Land Area</p>
-					</li>
-					<li>
-						<h3 className="font-display font-medium text-2xl">2600</h3>
-						<p className="font-light text-white/70">Villas</p>
-					</li>
-					<li>
-						<h3 className="font-display font-medium text-2xl">
-							25% of the Land
-						</h3>
-						<p className="font-light text-white/70">Open Spaces + Amenities</p>
-					</li>
-					<li>
-						<h3 className="font-display font-medium text-2xl">
-							4 International Golf Courses
-						</h3>
-						<p className="font-light text-white/70">In Close Proximity</p>
-					</li>
+				<ul className="mt-8 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
+					{data.amenities.lists.map((list) => (
+						<li key={list.value}>
+							<h3 className="font-display font-medium text-2xl">
+								{list.value}
+							</h3>
+							<p className="font-light text-white/70">{list.label}</p>
+						</li>
+					))}
 				</ul>
 			</section>
 			<section id="videos">
 				<video
 					autoPlay
-					className="aspect-video"
+					className="aspect-video w-full"
 					crossOrigin="anonymous"
 					loop
 					muted
 					slot="media"
-					src="/images/oasis/the-oasis.webm"
+					src="/grand-polo/grand-polo-community.mp4"
 					title="Intro Video"
 				/>
 			</section>

@@ -2,10 +2,12 @@ import { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { BrouchreDownloadButton } from "@/components/brochure-download-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 import { IconArrowRight } from "@/assets/icons/arrows";
+import { OasisLogo } from "@/assets/logos/oasis";
 
 import { OASIS } from "@/data/constants";
 
@@ -19,8 +21,7 @@ export default async function Page() {
 					<ul className="flex items-center gap-6 font-medium sm:justify-center">
 						<li className="mr-6 shrink-0 whitespace-nowrap text-nowrap font-display">
 							<Link href="/oasis">
-								<span>The Oasis</span>{" "}
-								<span className="text-[8px]"> by EMAAR</span>
+								<OasisLogo className="h-7 w-auto md:h-9" />
 							</Link>
 						</li>
 						{data.sections.map((nav) => (
@@ -32,9 +33,7 @@ export default async function Page() {
 							</li>
 						))}
 						<li className="ml-auto sm:ml-6">
-							<Button className="relative inset-shadow-sm inset-shadow-white/50 z-10 overflow-hidden bg-yellow-500 px-3 font-semibold text-yellow-950 after:absolute after:inset-0 after:z-0 after:bg-linear-to-t after:from-yellow-600">
-								<span className="relative z-10">Download Brochure</span>
-							</Button>
+							<BrouchreDownloadButton />
 						</li>
 					</ul>
 				</nav>
@@ -128,7 +127,7 @@ export default async function Page() {
 					loop
 					muted
 					slot="media"
-					src="/images/oasis/the-oasis.webm"
+					src="/oasis/the-oasis.webm"
 					title="Intro Video"
 				/>
 			</section>
