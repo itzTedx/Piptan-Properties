@@ -42,9 +42,9 @@ export default async function Page() {
 
 			<section className="relative h-svh">
 				<div className="container relative z-20 mx-auto flex h-full flex-col items-start justify-end text-white">
-					<div className="flex w-full flex-col items-start justify-between gap-8 py-12 md:flex-row md:items-center md:py-16">
+					<div className="flex w-full flex-col items-start justify-between gap-8 px-6 py-12 md:flex-row md:items-center md:py-16">
 						<div className="space-y-4">
-							<h1 className="mb-4 font-display text-5xl text-shadow-black/30 text-shadow-md sm:mb-6 sm:text-6xl md:text-8xl">
+							<h1 className="mb-4 font-display font-medium text-6xl text-shadow-black/30 text-shadow-md sm:mb-6 sm:text-7xl md:text-8xl">
 								{data.title}
 							</h1>
 							<Button className="bg-white text-stone-900" size="lg">
@@ -64,7 +64,7 @@ export default async function Page() {
 									10/70/20
 								</h2>
 								<p className="font-light">Payment Plan</p>
-								<span className="mt-8 block sm:mt-12">
+								<span className="mt-8 block sm:mt-12 md:mt-20">
 									Starting Price <br /> Upon Request
 								</span>
 							</li>
@@ -133,10 +133,10 @@ export default async function Page() {
 				/>
 			</section>
 			<section
-				className="container mx-auto grid grid-cols-1 gap-8 px-4 py-12 sm:gap-12 sm:px-6 sm:py-16 md:py-20 lg:grid-cols-[0.75fr_1fr] lg:px-8"
+				className="container mx-auto grid grid-cols-1 items-center gap-8 px-4 py-12 sm:gap-12 sm:px-6 sm:py-16 md:py-20 lg:grid-cols-[0.75fr_1fr] lg:px-8"
 				id={data.about.slug}
 			>
-				<div className="relative aspect-5/3 overflow-hidden rounded-xl">
+				<div className="relative aspect-4/3 overflow-hidden rounded-xl">
 					<Image
 						alt={data.about.title}
 						className="object-cover"
@@ -148,7 +148,7 @@ export default async function Page() {
 					<h2 className="mb-2 font-bold font-display text-3xl sm:text-4xl">
 						{data.about.title}
 					</h2>
-					<p className="mb-6 font-light text-base sm:text-xl">
+					<p className="mb-6 font-light text-base sm:text-lg">
 						{data.about.description}
 					</p>
 					<Button

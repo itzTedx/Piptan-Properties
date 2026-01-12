@@ -20,7 +20,7 @@ export const Footer = async () => {
 			className="overflow-hidden bg-black text-white"
 			role="contentinfo"
 		>
-			<div className="container mx-auto">
+			<div className="container mx-auto px-6">
 				<section
 					aria-label="Footer content"
 					className="grid grid-cols-1 gap-6 py-8 md:grid-cols-2 md:py-12 lg:grid-cols-3 lg:py-16"
