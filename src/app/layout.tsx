@@ -18,7 +18,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html className={cn(ivyora.variable, geist.className)} lang="en">
+		<html
+			className={cn(ivyora.variable, geist.className, "scroll-smooth")}
+			lang="en"
+		>
 			<body className={"antialiased"}>
 				{children}
 

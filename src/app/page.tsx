@@ -159,7 +159,7 @@ export default async function Page() {
 					</Button>
 				</div>
 			</section>
-			<section className="bg-card py-12 sm:py-16 md:py-20">
+			<section className="bg-card py-12 sm:py-16 md:py-20" id="price">
 				<div className="container mx-auto grid grid-cols-1 gap-8 px-4 text-stone-900 sm:gap-6 sm:px-6 lg:grid-cols-[1fr_0.6fr] lg:px-8">
 					<div className="h-fit lg:sticky lg:top-20">
 						<Badge>{data.paymentPlan.title}</Badge>
@@ -196,7 +196,10 @@ export default async function Page() {
 					</ul>
 				</div>
 			</section>
-			<section className="container mx-auto px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8">
+			<section
+				className="container mx-auto px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8"
+				id="gallery"
+			>
 				<Badge className="bg-white text-stone-900">Gallery</Badge>
 				<div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{data.gallery.map((img) => (

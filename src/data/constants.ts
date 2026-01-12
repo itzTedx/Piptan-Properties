@@ -59,6 +59,10 @@ export const OASIS = {
 			title: "Price",
 		},
 		{
+			slug: "gallery",
+			title: "Gallery",
+		},
+		{
 			slug: "location",
 			title: "Location",
 		},
