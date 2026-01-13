@@ -11,7 +11,7 @@ import { OasisLogo } from "@/assets/logos/oasis";
 
 import { OASIS } from "@/data/constants";
 
-export default async function Page() {
+export default async function OasisPage() {
 	const data = OASIS;
 
 	return (
@@ -20,7 +20,7 @@ export default async function Page() {
 				<nav>
 					<ul className="flex items-center gap-6 font-medium sm:justify-center">
 						<li className="mr-6 shrink-0 whitespace-nowrap text-nowrap font-display">
-							<Link href="/oasis">
+							<Link href="/">
 								<OasisLogo className="h-7 w-auto md:h-9" />
 							</Link>
 						</li>

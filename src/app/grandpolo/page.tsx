@@ -20,7 +20,7 @@ export default async function Page() {
 				<nav>
 					<ul className="flex items-center gap-6 font-medium sm:justify-center">
 						<li className="mr-6 shrink-0 whitespace-nowrap text-nowrap font-display">
-							<Link href="/oasis">
+							<Link href="/">
 								<GrandPoloLogo className="h-7 w-auto md:h-9" />
 							</Link>
 						</li>
@@ -71,14 +71,24 @@ export default async function Page() {
 					</div>
 				</div>
 				<div className="absolute inset-x-0 bottom-0 z-10 h-[65%] bg-linear-to-t from-stone-950" />
-				<Image
+				<video
+					autoPlay
+					className="absolute inset-0 size-full object-cover"
+					crossOrigin="anonymous"
+					loop
+					muted
+					slot="media"
+					src="/grand-polo/hero-video.webm"
+					title="Intro Video"
+				/>
+				{/* <Image
 					alt={data.title}
 					className="object-cover"
 					fill
 					quality={100}
 					sizes="100vw"
 					src={data.image}
-				/>
+				/> */}
 			</section>
 			<section
 				className="container mx-auto px-4 py-12 sm:px-6 lg:px-8"
