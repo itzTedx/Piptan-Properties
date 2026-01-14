@@ -33,7 +33,7 @@ export default async function Page() {
 							</li>
 						))}
 						<li className="ml-auto sm:ml-6">
-							<BrouchreDownloadButton />
+							<BrouchreDownloadButton className="bg-yellow-500 text-stone-950 after:from-yellow-600" />
 						</li>
 					</ul>
 				</nav>
@@ -136,18 +136,13 @@ export default async function Page() {
 					/>
 				</div>
 				<div>
-					<h2 className="mb-2 font-bold font-display text-3xl sm:text-4xl">
+					<h2 className="mb-3 font-bold font-display text-3xl sm:text-4xl">
 						{data.about.title}
 					</h2>
-					<p className="mb-6 font-light text-base sm:text-lg">
+					<p className="mb-6 whitespace-pre-line font-light text-base sm:text-lg">
 						{data.about.description}
 					</p>
-					<Button
-						className="relative inset-shadow-sm inset-shadow-white/50 z-10 overflow-hidden bg-yellow-500 px-3 font-semibold text-yellow-950 after:absolute after:inset-0 after:z-0 after:bg-linear-to-t after:from-yellow-700"
-						size="lg"
-					>
-						<span className="relative z-10">Download Brochure</span>
-					</Button>
+					<BrouchreDownloadButton className="bg-yellow-500 text-stone-950 after:from-yellow-600" />
 				</div>
 			</section>
 			<section className="bg-card py-12 sm:py-16 md:py-20" id="price">
@@ -170,7 +165,7 @@ export default async function Page() {
 					<ul className="flex flex-col gap-3">
 						{data.paymentPlan.lists.map((list) => (
 							<li
-								className="grid grid-cols-1 gap-3 rounded-lg p-6 text-amber-950 odd:bg-amber-50 sm:grid-cols-2"
+								className="grid grid-cols-1 gap-3 rounded-lg p-6 text-yellow-950 odd:bg-yellow-50 sm:grid-cols-2"
 								key={list.label}
 							>
 								<h3 className="font-display font-medium text-4xl sm:text-5xl">

@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 export const BrouchreDownloadButton = ({
 	className,
+	...props
 }: React.ComponentProps<typeof Button>) => {
 	return (
 		<Dialog>
@@ -15,6 +16,7 @@ export const BrouchreDownloadButton = ({
 							"relative inset-shadow-sm inset-shadow-white/50 z-10 overflow-hidden px-3 font-semibold after:pointer-events-none after:absolute after:inset-0 after:z-0 after:bg-linear-to-t",
 							className
 						)}
+						{...props}
 					/>
 				}
 			>

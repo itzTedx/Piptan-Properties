@@ -26,14 +26,17 @@ export default async function OasisPage() {
 						</li>
 						{data.sections.map((nav) => (
 							<li
-								className="hidden font-display capitalize transition-colors hover:text-amber-500 sm:block"
+								className="hidden font-display capitalize transition-colors hover:text-orange-500 sm:block"
 								key={nav.slug}
 							>
 								<Link href={`#${nav.slug}`}>{nav.title}</Link>
 							</li>
 						))}
 						<li className="ml-auto sm:ml-6">
-							<BrouchreDownloadButton className="bg-amber-500 text-gray-950 after:from-amber-600" />
+							<BrouchreDownloadButton
+								className="bg-orange-500 text-black after:from-orange-600"
+								size="lg"
+							/>
 						</li>
 					</ul>
 				</nav>
@@ -147,15 +150,10 @@ export default async function OasisPage() {
 					<h2 className="mb-2 font-bold font-display text-3xl sm:text-4xl">
 						{data.about.title}
 					</h2>
-					<p className="mb-6 font-light text-base sm:text-lg">
+					<p className="mb-6 whitespace-pre-line font-light text-base sm:text-lg">
 						{data.about.description}
 					</p>
-					<Button
-						className="relative inset-shadow-sm inset-shadow-white/50 z-10 overflow-hidden bg-amber-500 px-3 font-semibold text-amber-950 after:absolute after:inset-0 after:z-0 after:bg-linear-to-t after:from-amber-700"
-						size="lg"
-					>
-						<span className="relative z-10">Download Brochure</span>
-					</Button>
+					<BrouchreDownloadButton className="bg-orange-500 text-black after:from-orange-600" />
 				</div>
 			</section>
 			<section className="bg-card py-12 sm:py-16 md:py-20" id="price">
@@ -178,7 +176,7 @@ export default async function OasisPage() {
 					<ul className="flex flex-col gap-3">
 						{data.paymentPlan.lists.map((list) => (
 							<li
-								className="grid grid-cols-1 gap-3 rounded-lg p-6 text-amber-950 odd:bg-amber-50 sm:grid-cols-2"
+								className="grid grid-cols-1 gap-3 rounded-lg p-6 text-orange-950 odd:bg-orange-50 sm:grid-cols-2"
 								key={list.label}
 							>
 								<h3 className="font-display font-medium text-4xl sm:text-5xl">
