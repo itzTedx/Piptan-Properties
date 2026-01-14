@@ -1,4 +1,4 @@
-import { Route } from "next";
+import { Metadata, Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,9 +11,14 @@ import { GrandPoloLogo } from "@/assets/logos/grand-polo";
 
 import { GRAND_POLO } from "@/data/constants";
 
-export default async function Page() {
-	const data = GRAND_POLO;
+const data = GRAND_POLO;
 
+export const metadata: Metadata = {
+	title: data.title,
+	description: data.amenities.description,
+};
+
+export default async function Page() {
 	return (
 		<main className="bg-stone-950 text-stone-100">
 			<header className="fixed left-1/2 z-999 w-[90%] -translate-x-1/2 rounded-b-xl bg-stone-950 px-4 py-3 text-white shadow-sm sm:w-auto sm:px-8">

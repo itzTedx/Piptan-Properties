@@ -1,4 +1,4 @@
-import { Route } from "next";
+import { Metadata, Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,9 +11,14 @@ import { OasisLogo } from "@/assets/logos/oasis";
 
 import { OASIS } from "@/data/constants";
 
-export default async function OasisPage() {
-	const data = OASIS;
+const data = OASIS;
 
+export const metadata: Metadata = {
+	title: data.title,
+	description: data.amenities.description,
+};
+
+export default async function OasisPage() {
 	return (
 		<main className="bg-gray-950 text-gray-100">
 			<header className="fixed left-1/2 z-999 w-[90%] -translate-x-1/2 rounded-b-xl bg-gray-950 px-4 py-3 text-white shadow-sm sm:w-auto sm:px-8">
@@ -86,40 +91,20 @@ export default async function OasisPage() {
 				id="amenities"
 			>
 				<h2 className="font-display font-medium text-3xl sm:text-4xl">
-					Amenities
+					{data.amenities.title}
 				</h2>
 				<p className="mt-4 font-medium text-lg leading-relaxed sm:text-xl">
-					The Oasis by Emaar presents a wealth of amenities designed to enrich
-					resident's lives and foster a vibrant community atmosphere. Within
-					this expansive master community, residents have access to beautifully
-					landscaped parks, jogging tracks, and local mosques, offering serene
-					spaces for relaxation. With convenient access to pristine beaches and
-					a central location, leisure and exploration are effortlessly woven
-					into daily life.
+					{data.amenities.description}
 				</p>
 				<ul className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
-					<li>
-						<h3 className="font-display font-medium text-2xl">
-							100 million sq ft
-						</h3>
-						<p className="font-light text-white/70">Total Land Area</p>
-					</li>
-					<li>
-						<h3 className="font-display font-medium text-2xl">2600</h3>
-						<p className="font-light text-white/70">Villas</p>
-					</li>
-					<li>
-						<h3 className="font-display font-medium text-2xl">
-							25% of the Land
-						</h3>
-						<p className="font-light text-white/70">Open Spaces + Amenities</p>
-					</li>
-					<li>
-						<h3 className="font-display font-medium text-2xl">
-							4 International Golf Courses
-						</h3>
-						<p className="font-light text-white/70">In Close Proximity</p>
-					</li>
+					{data.amenities.lists.map((list) => (
+						<li key={list.label}>
+							<h3 className="font-display font-medium text-2xl">
+								{list.value}
+							</h3>
+							<p className="font-light text-white/70">{list.label}</p>
+						</li>
+					))}
 				</ul>
 			</section>
 			<section id="videos">

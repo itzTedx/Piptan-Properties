@@ -1,41 +1,3 @@
-export const DATA = [
-	{
-		slug: "oasis",
-		title: "THE OASIS by EMAAR",
-		image: "/oasis/hero-1.webp",
-
-		sections: [
-			{
-				slug: "about",
-				title: "About Emaar The Oasis",
-				description:
-					"Experience refined waterfront living at The Oasis by Emaar, an exclusive retreat surrounded by lush landscapes and serene waterways. Featuring luxurious mansions and villas designed by world-renowned architects, each residence blends elegance with comfort. Enjoy seamless indoor-outdoor living, world-class amenities, and personalized services that elevate everyday moments. With access to four international golf courses, a clubhouse, private beach, healthcare centre, and expansive open spaces, Emaar The Oasis Dubai redefines sophistication. Discover a lifestyle of timeless charm, indulgence, and tranquility - welcome home to Emaar The Oasis.",
-			},
-			{
-				slug: "price",
-				title: "Price Overview",
-				description: `Discover unparalleled luxury living at The Oasis by Emaar, an exclusive sanctuary nestled amidst lush greenery and tranquil waterways. Our meticulously crafted residences, including mansions and villas, are designed by world-renowned architects and adorned with interiors by acclaimed designers.
-
-                    Enjoy seamless indoor-outdoor living, complemented by an abundance of world-class amenities. The Oasis by Emaar is more than just refined waterfront living; it’s the epitome of elegance and comfort, with every moment a celebration of life. Enjoy the luxury of personalised services that cater to your every need, making every day an occasion for indulgence and relaxation. Unwind in style amidst meticulously crafted interiors that inspire and invigorate. Your journey to unparalleled sophistication begins now at Emaar’s The Oasis. Welcome home to a lifestyle of effortless luxury and timeless charm.`,
-			},
-		],
-
-		about: {
-			slug: "about",
-			title: "About Emaar The Oasis",
-			description:
-				"Experience refined waterfront living at The Oasis by Emaar, an exclusive retreat surrounded by lush landscapes and serene waterways. Featuring luxurious mansions and villas designed by world-renowned architects, each residence blends elegance with comfort. Enjoy seamless indoor-outdoor living, world-class amenities, and personalized services that elevate everyday moments. With access to four international golf courses, a clubhouse, private beach, healthcare centre, and expansive open spaces, Emaar The Oasis Dubai redefines sophistication. Discover a lifestyle of timeless charm, indulgence, and tranquility - welcome home to Emaar The Oasis.",
-		},
-		price: {
-			slug: "price",
-			title: "Price Overview",
-			description: `Discover unparalleled luxury living at The Oasis by Emaar, an exclusive sanctuary nestled amidst lush greenery and tranquil waterways. Our meticulously crafted residences, including mansions and villas, are designed by world-renowned architects and adorned with interiors by acclaimed designers.
-
-				Enjoy seamless indoor-outdoor living, complemented by an abundance of world-class amenities. The Oasis by Emaar is more than just refined waterfront living; it’s the epitome of elegance and comfort, with every moment a celebration of life. Enjoy the luxury of personalised services that cater to your every need, making every day an occasion for indulgence and relaxation. Unwind in style amidst meticulously crafted interiors that inspire and invigorate. Your journey to unparalleled sophistication begins now at Emaar’s The Oasis. Welcome home to a lifestyle of effortless luxury and timeless charm.`,
-		},
-	},
-];
-
 export const OASIS = {
 	slug: "oasis",
 	title: "THE OASIS by EMAAR",
@@ -77,6 +39,29 @@ export const OASIS = {
 		Featuring luxurious mansions and villas designed by world-renowned architects, each residence blends elegance with comfort. Enjoy seamless indoor-outdoor living, world-class amenities, and personalized services that elevate everyday moments. With access to four international golf courses, a clubhouse, private beach, healthcare centre, and expansive open spaces, Emaar The Oasis Dubai redefines sophistication.
 			
 			Discover a lifestyle of timeless charm, indulgence, and tranquility - welcome home to Emaar The Oasis.`,
+	},
+	amenities: {
+		title: "Amenities",
+		description:
+			"The Oasis by Emaar presents a wealth of amenities designed to enrich resident's lives and foster a vibrant community atmosphere. Within this expansive master community, residents have access to beautifully landscaped parks, jogging tracks, and local mosques, offering serene spaces for relaxation. With convenient access to pristine beaches and a central location, leisure and exploration are effortlessly woven into daily life.",
+		lists: [
+			{
+				value: "100 million sq ft",
+				label: "Total Land Area",
+			},
+			{
+				value: "2600",
+				label: "Villas",
+			},
+			{
+				value: "25% of the Land",
+				label: "Open Spaces + Amenities",
+			},
+			{
+				value: "4 International Golf Courses",
+				label: "In Close Proximity",
+			},
+		],
 	},
 
 	paymentPlan: {
