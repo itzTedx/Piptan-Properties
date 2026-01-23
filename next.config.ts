@@ -20,6 +20,20 @@ const nextConfig: NextConfig = {
 		// Enable filesystem caching for `next build`
 		turbopackFileSystemCacheForBuild: true,
 	},
+	// Allow multiple domains
+	async headers() {
+		return [
+			{
+				source: "/:path*",
+				headers: [
+					{
+						key: "X-DNS-Prefetch-Control",
+						value: "on",
+					},
+				],
+			},
+		];
+	},
 };
 
 export default nextConfig;
