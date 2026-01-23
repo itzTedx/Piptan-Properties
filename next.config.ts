@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
 
 	images: {
 		qualities: [85, 100],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "**.piptan.ae",
+			},
+			{
+				protocol: "http",
+				hostname: "localhost",
+			},
+		],
 	},
 
 	experimental: {
