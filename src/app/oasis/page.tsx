@@ -12,13 +12,115 @@ import { OasisLogo } from "@/assets/logos/oasis";
 import { OASIS } from "@/data/constants";
 
 const data = OASIS;
+const defaultSiteUrl = "https://emaar-oasis.piptan.ae";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl;
+const pagePath = "/";
+const pageUrl = `${siteUrl}${pagePath}`;
 
 export const metadata: Metadata = {
-	title: data.title,
+	metadataBase: new URL(siteUrl),
+	title: `${data.title} | Piptan Properties`,
 	description: data.amenities.description,
+	keywords: [
+		"The Oasis by Emaar",
+		"Emaar The Oasis Dubai",
+		"Oasis villas Dubai",
+		"waterfront villas Dubai",
+		"luxury villas by Emaar",
+	],
+	alternates: {
+		canonical: pageUrl,
+	},
+	openGraph: {
+		title: `${data.title} | Piptan Properties`,
+		description: data.amenities.description,
+		url: pageUrl,
+		type: "website",
+		images: [
+			{
+				url: data.image,
+				alt: data.title,
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: `${data.title} | Piptan Properties`,
+		description: data.amenities.description,
+		images: [data.image],
+	},
+	robots: {
+		index: true,
+		follow: true,
+	},
 };
 
 export default async function OasisPage() {
+	const faqSchema = {
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		mainEntity: [
+			{
+				"@type": "Question",
+				name: "What is The Oasis by Emaar?",
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: data.about.description,
+				},
+			},
+			{
+				"@type": "Question",
+				name: "Where is The Oasis by Emaar located?",
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: data.location.description,
+				},
+			},
+			{
+				"@type": "Question",
+				name: "What amenities are available at The Oasis?",
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: data.amenities.description,
+				},
+			},
+			{
+				"@type": "Question",
+				name: "What is the payment plan for The Oasis by Emaar?",
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: data.paymentPlan.description,
+				},
+			},
+		],
+	} as const;
+
+	const webPageSchema = {
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		"@id": `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: `${data.title} | Piptan Properties`,
+		description: data.amenities.description,
+		breadcrumb: {
+			"@type": "BreadcrumbList",
+			itemListElement: [
+				{
+					"@type": "ListItem",
+					position: 1,
+					name: "Home",
+					item: siteUrl || "/",
+				},
+				{
+					"@type": "ListItem",
+					position: 2,
+					name: data.title,
+					item: pageUrl,
+				},
+			],
+		},
+	} as const;
+
 	return (
 		<main className="bg-gray-950 text-gray-100">
 			<header className="fixed left-1/2 z-999 w-[90%] -translate-x-1/2 rounded-b-xl bg-gray-950 px-4 py-3 text-white shadow-sm sm:w-auto sm:px-8">
@@ -47,11 +149,14 @@ export default async function OasisPage() {
 				</nav>
 			</header>
 
-			<section className="relative h-svh">
+			<section className="relative h-svh" aria-labelledby="oasis-hero-heading">
 				<div className="container relative z-20 mx-auto flex h-full flex-col items-start justify-end text-white">
 					<div className="flex w-full flex-col items-start justify-between gap-8 px-6 py-12 md:flex-row md:items-center md:py-16">
 						<div className="space-y-4">
-							<h1 className="mb-4 font-display font-medium text-6xl text-shadow-black/30 text-shadow-md sm:mb-6 sm:text-7xl md:text-8xl">
+							<h1
+								id="oasis-hero-heading"
+								className="mb-4 font-display font-medium text-6xl text-shadow-black/30 text-shadow-md sm:mb-6 sm:text-7xl md:text-8xl"
+							>
 								{data.title}
 							</h1>
 							<Button className="bg-white text-gray-900" size="lg">
@@ -78,19 +183,23 @@ export default async function OasisPage() {
 						</ul>
 					</div>
 				</div>
-				<div className="absolute inset-x-0 bottom-0 z-10 h-[65%] bg-linear-to-t from-gray-950" />
+				<div className="absolute inset-x-0 bottom-0 z-10 h-[65%] bg-linear-to-t from-gray-950" aria-hidden="true" />
 				<Image
-					alt={data.title}
+					alt={`${data.title} luxury waterfront community hero view`}
 					className="object-cover"
 					fill
 					src={data.image}
 				/>
 			</section>
 			<section
+				aria-labelledby="oasis-amenities-heading"
 				className="container mx-auto px-4 py-12 sm:px-6 lg:px-8"
 				id="amenities"
 			>
-				<h2 className="font-display font-medium text-3xl sm:text-4xl">
+				<h2
+					id="oasis-amenities-heading"
+					className="font-display font-medium text-3xl sm:text-4xl"
+				>
 					{data.amenities.title}
 				</h2>
 				<p className="mt-4 font-medium text-lg leading-relaxed sm:text-xl">
@@ -107,7 +216,17 @@ export default async function OasisPage() {
 					))}
 				</ul>
 			</section>
-			<section id="videos">
+			<section
+				aria-labelledby="oasis-videos-heading"
+				className="container mx-auto px-4 pb-12 sm:px-6 lg:px-8"
+				id="videos"
+			>
+				<h2
+					id="oasis-videos-heading"
+					className="sr-only"
+				>
+					Project videos for {data.title}
+				</h2>
 				<video
 					autoPlay
 					className="aspect-video"
@@ -120,19 +239,23 @@ export default async function OasisPage() {
 				/>
 			</section>
 			<section
+				aria-labelledby="oasis-about-heading"
 				className="container mx-auto grid grid-cols-1 items-center gap-8 px-4 py-12 sm:gap-12 sm:px-6 sm:py-16 md:py-20 lg:grid-cols-[0.75fr_1fr] lg:px-8"
 				id={data.about.slug}
 			>
 				<div className="relative aspect-4/3 overflow-hidden rounded-xl">
 					<Image
-						alt={data.about.title}
+						alt={`Interior and lifestyle at ${data.about.title}`}
 						className="object-cover"
 						fill
 						src={data.about.image}
 					/>
 				</div>
 				<div>
-					<h2 className="mb-2 font-bold font-display text-3xl sm:text-4xl">
+					<h2
+						id="oasis-about-heading"
+						className="mb-2 font-bold font-display text-3xl sm:text-4xl"
+					>
 						{data.about.title}
 					</h2>
 					<p className="mb-6 whitespace-pre-line font-light text-base sm:text-lg">
@@ -141,11 +264,18 @@ export default async function OasisPage() {
 					<BrouchreDownloadButton className="bg-orange-500 text-black after:from-orange-600" />
 				</div>
 			</section>
-			<section className="bg-card py-12 sm:py-16 md:py-20" id="price">
+			<section
+				aria-labelledby="oasis-price-heading"
+				className="bg-card py-12 sm:py-16 md:py-20"
+				id="price"
+			>
 				<div className="container mx-auto grid grid-cols-1 gap-8 px-4 text-gray-900 sm:gap-6 sm:px-6 lg:grid-cols-[1fr_0.6fr] lg:px-8">
 					<div className="h-fit lg:sticky lg:top-20">
 						<Badge>{data.paymentPlan.title}</Badge>
-						<h2 className="mt-4 font-display font-medium text-4xl tracking-tight sm:text-5xl">
+						<h2
+							id="oasis-price-heading"
+							className="mt-4 font-display font-medium text-4xl tracking-tight sm:text-5xl"
+						>
 							Payment Plan
 						</h2>
 						<p className="mt-6 max-w-prose text-muted-foreground">
@@ -179,18 +309,25 @@ export default async function OasisPage() {
 				</div>
 			</section>
 			<section
+				aria-labelledby="oasis-gallery-heading"
 				className="container mx-auto px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8"
 				id="gallery"
 			>
 				<Badge className="bg-white text-gray-900">Gallery</Badge>
+				<h2
+					id="oasis-gallery-heading"
+					className="sr-only"
+				>
+					{data.title} gallery
+				</h2>
 				<div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-					{data.gallery.map((img) => (
+					{data.gallery.map((img, index) => (
 						<div
 							className="relative aspect-5/3 overflow-hidden rounded-md"
 							key={img.src}
 						>
 							<Image
-								alt=""
+								alt={`${data.title} gallery image ${index + 1}`}
 								className="object-cover transition-transform hover:scale-105"
 								fill
 								src={img.src}
@@ -200,13 +337,17 @@ export default async function OasisPage() {
 				</div>
 			</section>
 			<section
+				aria-labelledby="oasis-location-heading"
 				className="px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8"
 				id={data.location.slug}
 			>
 				<div className="container mx-auto max-w-7xl">
 					<Badge className="bg-white px-6 text-gray-900">Location</Badge>
 					<div className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
-						<h2 className="font-display font-medium text-4xl sm:text-5xl">
+						<h2
+							id="oasis-location-heading"
+							className="font-display font-medium text-4xl sm:text-5xl"
+						>
 							{data.location.title}
 						</h2>
 						<p className="font-light text-lg text-white/80">
@@ -215,7 +356,11 @@ export default async function OasisPage() {
 					</div>
 					<div className="relative mt-12">
 						<div className="relative aspect-video overflow-hidden rounded-lg">
-							<Image alt="" fill src={data.location.image} />
+							<Image
+								alt={`${data.title} location and connectivity map`}
+								fill
+								src={data.location.image}
+							/>
 						</div>
 						<Button
 							className="absolute right-4 -bottom-5 sm:-right-6 [a]:hover:bg-white [a]:hover:text-gray-900"
@@ -238,6 +383,52 @@ export default async function OasisPage() {
 					</ul>
 				</div>
 			</section>
+
+			<section aria-label="Frequently asked questions" className="bg-gray-950 px-4 pb-16 sm:px-6 lg:px-8">
+				<div className="container mx-auto max-w-4xl">
+					<h2 className="mb-6 font-display text-3xl font-medium text-white sm:text-4xl">
+						Frequently Asked Questions
+					</h2>
+					<div className="space-y-4">
+						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
+							<summary className="cursor-pointer list-none font-medium text-white">
+								What is The Oasis by Emaar?
+							</summary>
+							<p className="mt-2 text-sm text-white/80">{data.about.description}</p>
+						</details>
+						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
+							<summary className="cursor-pointer list-none font-medium text-white">
+								Where is The Oasis located in Dubai?
+							</summary>
+							<p className="mt-2 text-sm text-white/80">{data.location.description}</p>
+						</details>
+						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
+							<summary className="cursor-pointer list-none font-medium text-white">
+								What amenities are available for residents?
+							</summary>
+							<p className="mt-2 text-sm text-white/80">
+								The community offers landscaped parks, jogging tracks, access to pristine beaches, local mosques,
+								open green spaces and proximity to four international golf courses, a clubhouse, healthcare centre and
+								retail.
+							</p>
+						</details>
+						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
+							<summary className="cursor-pointer list-none font-medium text-white">
+								What is the payment plan for The Oasis by Emaar?
+							</summary>
+							<p className="mt-2 text-sm text-white/80">{data.paymentPlan.description}</p>
+						</details>
+					</div>
+				</div>
+			</section>
+
+			<script
+				type="application/ld+json"
+				suppressHydrationWarning
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify([webPageSchema, faqSchema]),
+				}}
+			/>
 		</main>
 	);
 }
