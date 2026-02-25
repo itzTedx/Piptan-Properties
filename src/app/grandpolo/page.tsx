@@ -340,7 +340,7 @@ export default async function Page() {
 							key={img.src}
 						>
 							<Image
-								alt={`${data.title} gallery image ${index + 1}`}
+								alt={img.alt ?? `${data.title} gallery image ${index + 1}`}
 								className="object-cover transition-transform hover:scale-105"
 								fill
 								src={img.src}
