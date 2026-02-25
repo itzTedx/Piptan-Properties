@@ -4,6 +4,12 @@ import Link from "next/link";
 import Script from "next/script";
 
 import { BrochureDownloadButton } from "@/components/brochure-download-button";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -411,42 +417,54 @@ export default async function Page() {
 					<h2 className="mb-6 font-display font-medium text-3xl text-white sm:text-4xl">
 						Frequently Asked Questions
 					</h2>
-					<div className="space-y-4">
-						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
-							<summary className="cursor-pointer list-none font-medium text-white">
+					<Accordion className="space-y-4" useSemanticHTML>
+						<AccordionItem
+							className="rounded-lg border border-white/10 bg-white/5 px-4"
+							value="about"
+						>
+							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
 								What is Grand Polo by Emaar?
-							</summary>
-							<p className="mt-2 text-sm text-white/80">
+							</AccordionTrigger>
+							<AccordionContent className="text-white/80">
 								{data.amenities.description}
-							</p>
-						</details>
-						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
-							<summary className="cursor-pointer list-none font-medium text-white">
+							</AccordionContent>
+						</AccordionItem>
+						<AccordionItem
+							className="rounded-lg border border-white/10 bg-white/5 px-4"
+							value="location"
+						>
+							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
 								Where is Grand Polo located in Dubai?
-							</summary>
-							<p className="mt-2 text-sm text-white/80">
+							</AccordionTrigger>
+							<AccordionContent className="text-white/80">
 								{data.location.description}
-							</p>
-						</details>
-						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
-							<summary className="cursor-pointer list-none font-medium text-white">
+							</AccordionContent>
+						</AccordionItem>
+						<AccordionItem
+							className="rounded-lg border border-white/10 bg-white/5 px-4"
+							value="amenities"
+						>
+							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
 								What amenities are available for residents at Grand Polo?
-							</summary>
-							<p className="mt-2 text-sm text-white/80">
+							</AccordionTrigger>
+							<AccordionContent className="text-white/80">
 								The master community spans over 5.54 million sq m and includes
 								vast open spaces, polo fields, stables, a clubhouse, mixed-use
 								areas and a wide range of premium residential clusters.
-							</p>
-						</details>
-						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
-							<summary className="cursor-pointer list-none font-medium text-white">
+							</AccordionContent>
+						</AccordionItem>
+						<AccordionItem
+							className="rounded-lg border border-white/10 bg-white/5 px-4"
+							value="payment"
+						>
+							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
 								What is the payment plan for Grand Polo by Emaar?
-							</summary>
-							<p className="mt-2 text-sm text-white/80">
+							</AccordionTrigger>
+							<AccordionContent className="text-white/80">
 								{data.paymentPlan.description}
-							</p>
-						</details>
-					</div>
+							</AccordionContent>
+						</AccordionItem>
+					</Accordion>
 				</div>
 			</section>
 
