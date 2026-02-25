@@ -4,6 +4,7 @@ import Link from "next/link";
 import Script from "next/script";
 
 import { BrochureDownloadButton } from "@/components/brochure-download-button";
+import { RequestPaymentPlanDialog } from "@/components/request-payment-plan-dialog";
 import {
 	Accordion,
 	AccordionContent,
@@ -13,7 +14,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-import { IconArrowRight } from "@/assets/icons/arrows";
 import { GrandPoloLogo } from "@/assets/logos/grand-polo";
 
 import { GRAND_POLO } from "@/data/constants";
@@ -150,7 +150,11 @@ export default async function Page() {
 							</li>
 						))}
 						<li className="ml-auto sm:ml-6">
-							<BrochureDownloadButton className="bg-yellow-500 text-stone-950 after:from-yellow-600" />
+							<BrochureDownloadButton
+								className="bg-yellow-500 text-stone-950 after:from-yellow-600"
+								projectImage={data.image}
+								projectName={data.title}
+							/>
 						</li>
 					</ul>
 				</nav>
@@ -283,7 +287,11 @@ export default async function Page() {
 					<p className="mb-6 whitespace-pre-line font-light text-base sm:text-lg">
 						{data.about.description}
 					</p>
-					<BrochureDownloadButton className="bg-yellow-500 text-stone-950 after:from-yellow-600" />
+					<BrochureDownloadButton
+						className="bg-yellow-500 text-stone-950 after:from-yellow-600"
+						projectImage={data.about.image}
+						projectName={data.title}
+					/>
 				</div>
 			</section>
 			<section
@@ -304,9 +312,7 @@ export default async function Page() {
 							{data.paymentPlan.description}
 						</p>
 						<div className="mt-9 flex flex-wrap gap-3">
-							<Button>
-								Request Payment Plan <IconArrowRight className="size-3" />
-							</Button>
+							<RequestPaymentPlanDialog projectName={data.title} />
 							<Button variant="outline">Download Brochure</Button>
 						</div>
 					</div>
