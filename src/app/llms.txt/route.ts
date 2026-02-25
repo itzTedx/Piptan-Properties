@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
@@ -15,4 +16,3 @@ export async function GET() {
 		},
 	});
 }
-

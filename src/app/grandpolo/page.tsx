@@ -1,8 +1,9 @@
 import { Metadata, Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
-import { BrouchreDownloadButton } from "@/components/brochure-download-button";
+import { BrochureDownloadButton } from "@/components/brochure-download-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -52,6 +53,9 @@ export const metadata: Metadata = {
 	robots: {
 		index: true,
 		follow: true,
+	},
+	verification: {
+		google: "4jnLKLwAQxiAxdxZcSMWXA3NKw3f79_By4a_AlLNCPQ",
 	},
 };
 
@@ -140,19 +144,22 @@ export default async function Page() {
 							</li>
 						))}
 						<li className="ml-auto sm:ml-6">
-							<BrouchreDownloadButton className="bg-yellow-500 text-stone-950 after:from-yellow-600" />
+							<BrochureDownloadButton className="bg-yellow-500 text-stone-950 after:from-yellow-600" />
 						</li>
 					</ul>
 				</nav>
 			</header>
 
-			<section className="relative h-svh" aria-labelledby="grandpolo-hero-heading">
+			<section
+				aria-labelledby="grandpolo-hero-heading"
+				className="relative h-svh"
+			>
 				<div className="container relative z-20 mx-auto flex h-full flex-col items-start justify-end text-white">
 					<div className="flex w-full flex-col items-start justify-between gap-8 px-6 py-12 md:flex-row md:items-center md:py-16">
 						<div className="space-y-4">
 							<h1
-								id="grandpolo-hero-heading"
 								className="mb-4 font-display font-medium text-6xl text-shadow-black/30 text-shadow-md sm:mb-6 sm:text-7xl md:text-8xl"
+								id="grandpolo-hero-heading"
 							>
 								{data.title}
 							</h1>
@@ -180,7 +187,10 @@ export default async function Page() {
 						</ul>
 					</div>
 				</div>
-				<div className="absolute inset-x-0 bottom-0 z-10 h-[65%] bg-linear-to-t from-stone-950" aria-hidden="true" />
+				<div
+					aria-hidden="true"
+					className="absolute inset-x-0 bottom-0 z-10 h-[65%] bg-linear-to-t from-stone-950"
+				/>
 				<video
 					autoPlay
 					className="absolute inset-0 size-full object-cover"
@@ -206,8 +216,8 @@ export default async function Page() {
 				id="amenities"
 			>
 				<h2
-					id="grandpolo-amenities-heading"
 					className="font-display font-medium text-3xl sm:text-4xl"
+					id="grandpolo-amenities-heading"
 				>
 					{data.amenities.title}
 				</h2>
@@ -230,10 +240,7 @@ export default async function Page() {
 				className="container mx-auto px-4 pb-12 sm:px-6 lg:px-8"
 				id="videos"
 			>
-				<h2
-					id="grandpolo-videos-heading"
-					className="sr-only"
-				>
+				<h2 className="sr-only" id="grandpolo-videos-heading">
 					Project videos for {data.title}
 				</h2>
 				<video
@@ -262,15 +269,15 @@ export default async function Page() {
 				</div>
 				<div>
 					<h2
-						id="grandpolo-about-heading"
 						className="mb-3 font-bold font-display text-3xl sm:text-4xl"
+						id="grandpolo-about-heading"
 					>
 						{data.about.title}
 					</h2>
 					<p className="mb-6 whitespace-pre-line font-light text-base sm:text-lg">
 						{data.about.description}
 					</p>
-					<BrouchreDownloadButton className="bg-yellow-500 text-stone-950 after:from-yellow-600" />
+					<BrochureDownloadButton className="bg-yellow-500 text-stone-950 after:from-yellow-600" />
 				</div>
 			</section>
 			<section
@@ -282,8 +289,8 @@ export default async function Page() {
 					<div className="h-fit lg:sticky lg:top-20">
 						<Badge>{data.paymentPlan.title}</Badge>
 						<h2
-							id="grandpolo-price-heading"
 							className="mt-4 font-display font-medium text-4xl tracking-tight sm:text-5xl"
+							id="grandpolo-price-heading"
 						>
 							Payment Plan
 						</h2>
@@ -323,10 +330,7 @@ export default async function Page() {
 				id="gallery"
 			>
 				<Badge className="bg-white text-stone-900">Gallery</Badge>
-				<h2
-					id="grandpolo-gallery-heading"
-					className="sr-only"
-				>
+				<h2 className="sr-only" id="grandpolo-gallery-heading">
 					{data.title} gallery
 				</h2>
 				<div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -354,8 +358,8 @@ export default async function Page() {
 					<Badge className="bg-white px-6 text-stone-900">Location</Badge>
 					<div className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
 						<h2
-							id="grandpolo-location-heading"
 							className="font-display font-medium text-4xl sm:text-5xl"
+							id="grandpolo-location-heading"
 						>
 							{data.location.title}
 						</h2>
@@ -399,9 +403,12 @@ export default async function Page() {
 				</div>
 			</section>
 
-			<section aria-label="Frequently asked questions" className="bg-stone-950 px-4 pb-16 sm:px-6 lg:px-8">
+			<section
+				aria-label="Frequently asked questions"
+				className="bg-stone-950 px-4 pb-16 sm:px-6 lg:px-8"
+			>
 				<div className="container mx-auto max-w-4xl">
-					<h2 className="mb-6 font-display text-3xl font-medium text-white sm:text-4xl">
+					<h2 className="mb-6 font-display font-medium text-3xl text-white sm:text-4xl">
 						Frequently Asked Questions
 					</h2>
 					<div className="space-y-4">
@@ -409,40 +416,43 @@ export default async function Page() {
 							<summary className="cursor-pointer list-none font-medium text-white">
 								What is Grand Polo by Emaar?
 							</summary>
-							<p className="mt-2 text-sm text-white/80">{data.amenities.description}</p>
+							<p className="mt-2 text-sm text-white/80">
+								{data.amenities.description}
+							</p>
 						</details>
 						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
 							<summary className="cursor-pointer list-none font-medium text-white">
 								Where is Grand Polo located in Dubai?
 							</summary>
-							<p className="mt-2 text-sm text-white/80">{data.location.description}</p>
+							<p className="mt-2 text-sm text-white/80">
+								{data.location.description}
+							</p>
 						</details>
 						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
 							<summary className="cursor-pointer list-none font-medium text-white">
 								What amenities are available for residents at Grand Polo?
 							</summary>
 							<p className="mt-2 text-sm text-white/80">
-								The master community spans over 5.54 million sq m and includes vast open spaces, polo fields,
-								stables, a clubhouse, mixed-use areas and a wide range of premium residential clusters.
+								The master community spans over 5.54 million sq m and includes
+								vast open spaces, polo fields, stables, a clubhouse, mixed-use
+								areas and a wide range of premium residential clusters.
 							</p>
 						</details>
 						<details className="group rounded-lg border border-white/10 bg-white/5 p-4">
 							<summary className="cursor-pointer list-none font-medium text-white">
 								What is the payment plan for Grand Polo by Emaar?
 							</summary>
-							<p className="mt-2 text-sm text-white/80">{data.paymentPlan.description}</p>
+							<p className="mt-2 text-sm text-white/80">
+								{data.paymentPlan.description}
+							</p>
 						</details>
 					</div>
 				</div>
 			</section>
 
-			<script
-				type="application/ld+json"
-				suppressHydrationWarning
-				dangerouslySetInnerHTML={{
-					__html: JSON.stringify([webPageSchema, faqSchema]),
-				}}
-			/>
+			<Script suppressHydrationWarning type="application/ld+json">
+				{JSON.stringify([webPageSchema, faqSchema])}
+			</Script>
 		</main>
 	);
 }

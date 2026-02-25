@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
-export const BrouchreDownloadButton = ({
+export const BrochureDownloadButton = ({
 	className,
 	...props
 }: React.ComponentProps<typeof Button>) => {

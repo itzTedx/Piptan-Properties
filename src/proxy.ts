@@ -6,8 +6,6 @@ export function proxy(request: NextRequest) {
 	// Extract subdomain
 	const subdomain = hostname.split(".")[0];
 
-	console.log("received subdomain: ", subdomain);
-
 	// Map subdomains to routes
 	const subdomainMap: Record<string, string> = {
 		"emaar-oasis": "/oasis",
