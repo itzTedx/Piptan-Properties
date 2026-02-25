@@ -3,7 +3,7 @@ export const OASIS = {
 	title: "THE OASIS by EMAAR",
 	image: "/oasis/hero-1.webp",
 	meta: {
-		title: "The Oasis by Emaar — Luxury Waterfront Villas in Dubai",
+		title: "The Oasis by Emaar - Luxury Waterfront Villas in Dubai",
 		description:
 			"Explore The Oasis by Emaar, a premium waterfront villa community in Dubai. Investment insights, location advantages, and project details by Piptan.",
 	},
@@ -181,7 +181,7 @@ export const GRAND_POLO = {
 	title: "GRAND POLO by EMAAR",
 	image: "/grand-polo/grand-polo-hero.webp",
 	meta: {
-		title: "Grand Polo by Emaar — Equestrian-Inspired Luxury Villas in Dubai",
+		title: "Grand Polo by Emaar - Equestrian-Inspired Luxury Villas in Dubai",
 		description:
 			"Discover Grand Polo by Emaar, a luxurious equestrian-inspired villa community in Dubai. Explore investment opportunities, location benefits, and project highlights with Piptan.",
 	},
