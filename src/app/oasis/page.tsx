@@ -19,6 +19,28 @@ import { OasisLogo } from "@/assets/logos/oasis";
 import { OASIS } from "@/data/constants";
 
 const data = OASIS;
+const clientCopy = {
+	overview:
+		"The Oasis by Emaar is a large-scale luxury real estate development by Emaar Properties in Dubai, United Arab Emirates. Announced in 2023, it is one of Emaar’s most ambitious waterfront villa communities, blending green landscapes, lagoons, and resort-style living for global and local investors.",
+	masterplan:
+		"Spanning over 100 million square feet, The Oasis is master-planned around tranquil canals, crystal lagoons, and lush parks. The community features villas, mansions, and premium residences designed by world‑renowned architects, integrating contemporary architecture with nature-focused urban planning close to Downtown Dubai and Dubai Marina.",
+	lifestyle:
+		"Residents at The Oasis will enjoy a resort-inspired lifestyle with access to multiple lagoons, swimming pools, retail promenades, and fine-dining venues. Jogging and cycling tracks, landscaped gardens, and exclusive clubhouses create a wellness-focused environment that feels like a private retreat within the city.",
+	investment:
+		"The Oasis reinforces Dubai’s position as a prime destination for global real estate investment, particularly for waterfront and villa-focused communities. Emaar’s large-scale, integrated approach positions The Oasis as a long-term, blue-chip asset that aligns with the emirate’s strategy to attract high-net-worth individuals and lifestyle-led buyers.",
+	status:
+		"As of 2024, The Oasis is in its early development phase, with plot releases and initial villa launches underway. Completion will roll out over several stages, as infrastructure, amenities, and community facilities are built out over the coming years.",
+} as const;
+
+const clientKeyFacts = [
+	{ label: "Developer", value: "Emaar Properties" },
+	{ label: "Location", value: "Dubai, United Arab Emirates" },
+	{ label: "Launch year", value: "2023" },
+	{ label: "Total investment", value: "Approx. USD 20 billion" },
+	{ label: "Community size", value: "≈ 100 million sq ft" },
+	{ label: "Lifestyle focus", value: "Waterfront & resort-style living" },
+] as const;
+
 const defaultSiteUrl = "https://emaar-oasis.piptan.ae";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl;
 const pagePath = "/";
@@ -26,8 +48,8 @@ const pageUrl = `${siteUrl}${pagePath}`;
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
-	title: `${data.title} | Piptan Properties`,
-	description: data.amenities.description,
+	title: `${data.meta.title} | Piptan Properties`,
+	description: data.meta.description,
 	keywords: [
 		"The Oasis by Emaar",
 		"Emaar The Oasis Dubai",
@@ -39,8 +61,8 @@ export const metadata: Metadata = {
 		canonical: pageUrl,
 	},
 	openGraph: {
-		title: `${data.title} | Piptan Properties`,
-		description: data.amenities.description,
+		title: `${data.meta.title} | Piptan Properties`,
+		description: data.meta.description,
 		url: pageUrl,
 		type: "website",
 		images: [
@@ -52,8 +74,8 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: `${data.title} | Piptan Properties`,
-		description: data.amenities.description,
+		title: `${data.meta.title} | Piptan Properties`,
+		description: data.meta.description,
 		images: [data.image],
 	},
 	robots: {
@@ -75,7 +97,7 @@ export default async function OasisPage() {
 				name: "What is The Oasis by Emaar?",
 				acceptedAnswer: {
 					"@type": "Answer",
-					text: data.about.description,
+					text: clientCopy.overview,
 				},
 			},
 			{
@@ -88,10 +110,18 @@ export default async function OasisPage() {
 			},
 			{
 				"@type": "Question",
-				name: "What amenities are available at The Oasis?",
+				name: "What amenities and lifestyle are available at The Oasis?",
 				acceptedAnswer: {
 					"@type": "Answer",
-					text: data.amenities.description,
+					text: clientCopy.lifestyle,
+				},
+			},
+			{
+				"@type": "Question",
+				name: "Why is The Oasis by Emaar a strong investment opportunity?",
+				acceptedAnswer: {
+					"@type": "Answer",
+					text: clientCopy.investment,
 				},
 			},
 			{
@@ -110,8 +140,8 @@ export default async function OasisPage() {
 		"@type": "WebPage",
 		"@id": `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: `${data.title} | Piptan Properties`,
-		description: data.amenities.description,
+		name: `${data.meta.title} | Piptan Properties`,
+		description: data.meta.description,
 		breadcrumb: {
 			"@type": "BreadcrumbList",
 			itemListElement: [
@@ -207,20 +237,78 @@ export default async function OasisPage() {
 				/>
 			</section>
 			<section
+				aria-labelledby="oasis-overview-heading"
+				className="container mx-auto px-4 py-12 sm:px-6 sm:py-16 md:py-20"
+				id="overview"
+			>
+				<div className="grid items-start gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+					<div className="h-fit md:sticky md:top-28">
+						<Badge className="bg-white/95 px-4 py-1 font-semibold text-gray-900 text-xs uppercase tracking-[0.22em]">
+							The Oasis by Emaar
+						</Badge>
+						<h2
+							className="mt-5 font-display font-medium text-3xl tracking-tight sm:text-4xl md:text-5xl"
+							id="oasis-overview-heading"
+						>
+							Luxury waterfront living in Dubai
+						</h2>
+						<p className="mt-5 text-lg text-white/85 leading-relaxed">
+							{clientCopy.overview}
+						</p>
+						<p className="mt-4 text-base text-white/75 leading-relaxed">
+							{clientCopy.masterplan}
+						</p>
+					</div>
+					<aside
+						aria-label="Key facts about The Oasis"
+						className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_18px_45px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-8"
+					>
+						<h3 className="font-display font-medium text-white text-xl sm:text-2xl">
+							Key facts
+						</h3>
+						<p className="mt-2 text-sm text-white/60">
+							An exclusive, resort-style community centred around water,
+							greenery, and high-design villas by Emaar.
+						</p>
+						<dl className="mt-4 grid grid-cols-2 gap-4 md:mt-6">
+							{clientKeyFacts.map((fact) => (
+								<div
+									className="rounded-xl border border-white/10 bg-black/30 p-4"
+									key={fact.label}
+								>
+									<dt className="font-semibold text-[0.7rem] text-white/55 uppercase tracking-[0.22em]">
+										{fact.label}
+									</dt>
+									<dd className="mt-2 font-medium text-base text-white">
+										{fact.value}
+									</dd>
+								</div>
+							))}
+						</dl>
+					</aside>
+				</div>
+			</section>
+			<section
 				aria-labelledby="oasis-amenities-heading"
 				className="container mx-auto px-4 py-12 sm:px-6 lg:px-8"
 				id="amenities"
 			>
+				<Badge className="bg-white px-4 py-1 font-semibold text-gray-900 text-xs uppercase tracking-[0.22em]">
+					Lifestyle &amp; amenities
+				</Badge>
 				<h2
-					className="font-display font-medium text-3xl sm:text-4xl"
+					className="mt-4 font-display font-medium text-3xl sm:text-4xl"
 					id="oasis-amenities-heading"
 				>
 					{data.amenities.title}
 				</h2>
-				<p className="mt-4 font-medium text-lg leading-relaxed sm:text-xl">
+				<p className="mt-4 font-medium text-lg text-white/85 leading-relaxed sm:text-xl">
+					{clientCopy.lifestyle}
+				</p>
+				<p className="mt-4 font-light text-base text-white/75 leading-relaxed sm:text-lg">
 					{data.amenities.description}
 				</p>
-				<ul className="mt-8 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
+				<ul className="mt-6 grid grid-cols-2 gap-4 sm:mt-12 md:mt-8 lg:grid-cols-4">
 					{data.amenities.lists.map((list) => (
 						<li key={list.label}>
 							<h3 className="font-display font-medium text-2xl">
@@ -394,66 +482,102 @@ export default async function OasisPage() {
 					</ul>
 				</div>
 			</section>
-
-			<section
-				aria-label="Frequently asked questions"
-				className="bg-gray-950 px-4 pb-16 sm:px-6 lg:px-8"
-			>
-				<div className="container mx-auto max-w-4xl">
-					<h2 className="mb-6 font-display font-medium text-3xl text-white sm:text-4xl">
-						Frequently Asked Questions
-					</h2>
-					<Accordion className="space-y-4" useSemanticHTML>
-						<AccordionItem
-							className="rounded-lg border border-white/10 bg-white/5 px-4"
-							value="about"
-						>
-							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
-								What is The Oasis by Emaar?
-							</AccordionTrigger>
-							<AccordionContent className="text-white/80">
-								{data.about.description}
-							</AccordionContent>
-						</AccordionItem>
-						<AccordionItem
-							className="rounded-lg border border-white/10 bg-white/5 px-4"
-							value="location"
-						>
-							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
-								Where is The Oasis located in Dubai?
-							</AccordionTrigger>
-							<AccordionContent className="text-white/80">
-								{data.location.description}
-							</AccordionContent>
-						</AccordionItem>
-						<AccordionItem
-							className="rounded-lg border border-white/10 bg-white/5 px-4"
-							value="amenities"
-						>
-							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
-								What amenities are available for residents?
-							</AccordionTrigger>
-							<AccordionContent className="text-white/80">
-								The community offers landscaped parks, jogging tracks, access to
-								pristine beaches, local mosques, open green spaces and proximity
-								to four international golf courses, a clubhouse, healthcare
-								centre and retail.
-							</AccordionContent>
-						</AccordionItem>
-						<AccordionItem
-							className="rounded-lg border border-white/10 bg-white/5 px-4"
-							value="payment"
-						>
-							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
-								What is the payment plan for The Oasis by Emaar?
-							</AccordionTrigger>
-							<AccordionContent className="text-white/80">
-								{data.paymentPlan.description}
-							</AccordionContent>
-						</AccordionItem>
-					</Accordion>
+			<div className="border-border/20 border-y bg-stone-900/70 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+				<div className="container mx-auto grid grid-cols-1 gap-8 md:grid-cols-2">
+					<section
+						aria-labelledby="oasis-market-heading"
+						id="market-significance"
+					>
+						<div className="container mx-auto max-w-5xl">
+							<Badge className="bg-white px-4 py-1 font-semibold text-gray-900 text-xs uppercase tracking-[0.22em]">
+								Investment &amp; market significance
+							</Badge>
+							<h2
+								className="mt-4 font-display font-medium text-3xl text-white tracking-tight sm:text-4xl"
+								id="oasis-market-heading"
+							>
+								A landmark, waterfront community by Emaar
+							</h2>
+							<p className="mt-5 text-lg text-white/85 leading-relaxed">
+								{clientCopy.investment}
+							</p>
+							<h3 className="mt-8 font-display text-2xl text-white sm:text-3xl">
+								Current status &amp; delivery timeline
+							</h3>
+							<p className="mt-3 text-base text-white/80 leading-relaxed">
+								{clientCopy.status}
+							</p>
+						</div>
+					</section>
+					<section
+						aria-label="Frequently asked questions"
+						className="px-4 pb-16 sm:px-6 lg:px-8"
+					>
+						<div className="container mx-auto max-w-xl">
+							<h2 className="mb-6 font-display font-medium text-3xl text-white sm:text-4xl">
+								Frequently Asked Questions
+							</h2>
+							<Accordion className="space-y-4" defaultValue={["about"]}>
+								<AccordionItem
+									className="rounded-lg border border-white/10 bg-white/5 px-4"
+									value="about"
+								>
+									<AccordionTrigger className="text-white hover:text-white hover:no-underline">
+										What is The Oasis by Emaar?
+									</AccordionTrigger>
+									<AccordionContent className="text-white/80">
+										{clientCopy.overview}
+									</AccordionContent>
+								</AccordionItem>
+								<AccordionItem
+									className="rounded-lg border border-white/10 bg-white/5 px-4"
+									value="location"
+								>
+									<AccordionTrigger className="text-white hover:text-white hover:no-underline">
+										Where is The Oasis located in Dubai?
+									</AccordionTrigger>
+									<AccordionContent className="text-white/80">
+										{data.location.description}
+									</AccordionContent>
+								</AccordionItem>
+								<AccordionItem
+									className="rounded-lg border border-white/10 bg-white/5 px-4"
+									value="amenities"
+								>
+									<AccordionTrigger className="text-white hover:text-white hover:no-underline">
+										What amenities and lifestyle are available for residents?
+									</AccordionTrigger>
+									<AccordionContent className="text-white/80">
+										{clientCopy.lifestyle}
+									</AccordionContent>
+								</AccordionItem>
+								<AccordionItem
+									className="rounded-lg border border-white/10 bg-white/5 px-4"
+									value="investment"
+								>
+									<AccordionTrigger className="text-white hover:text-white hover:no-underline">
+										Why is The Oasis by Emaar a strong investment opportunity?
+									</AccordionTrigger>
+									<AccordionContent className="text-white/80">
+										{clientCopy.investment}
+									</AccordionContent>
+								</AccordionItem>
+								<AccordionItem
+									className="rounded-lg border border-white/10 bg-white/5 px-4"
+									value="payment"
+								>
+									<AccordionTrigger className="text-white hover:text-white hover:no-underline">
+										What is the payment plan for The Oasis by Emaar?
+									</AccordionTrigger>
+									<AccordionContent className="text-white/80">
+										{data.paymentPlan.description}
+									</AccordionContent>
+								</AccordionItem>
+							</Accordion>
+						</div>
+					</section>
 				</div>
-			</section>
+			</div>
 
 			<Script suppressHydrationWarning type="application/ld+json">
 				{JSON.stringify([webPageSchema, faqSchema])}

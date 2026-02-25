@@ -19,6 +19,28 @@ import { GrandPoloLogo } from "@/assets/logos/grand-polo";
 import { GRAND_POLO } from "@/data/constants";
 
 const data = GRAND_POLO;
+
+const clientCopy = {
+	overview:
+		"Grand Polo is a luxury real estate development by Emaar Properties, planned within Dubai’s upscale communities. Designed to blend equestrian-inspired living with contemporary architecture, the project emphasizes exclusivity, open green spaces, and proximity to premier leisure and lifestyle destinations.",
+	concept:
+		"Grand Polo draws inspiration from the sport of polo and Dubai’s heritage of equestrian excellence. The master plan envisions spacious villas and townhouses surrounded by landscaped fields, riding trails, and leisure facilities, with modern architecture that pairs clean lines with natural textures.",
+	location:
+		"Located near Emaar’s established neighborhoods such as Arabian Ranches and Dubai Polo & Equestrian Club, Grand Polo offers direct access to Emirates Road and Al Qudra Road, placing residents close to top schools, retail centers, and everyday conveniences while preserving a resort-style atmosphere.",
+	lifestyle:
+		"The development’s amenities are expected to include polo fields, stables, landscaped parks, clubhouses, and wellness facilities, catering to residents who value an active outdoor lifestyle with refined recreational options, privacy, and a strong sense of community.",
+	market:
+		"Grand Polo extends Emaar’s portfolio of themed luxury projects and reinforces its leadership in master-planned communities across Dubai. The project reflects the city’s ongoing demand for integrated, lifestyle-led residential destinations that blend nature, sport, and contemporary urban living.",
+} as const;
+
+const clientKeyFacts = [
+	{ label: "Developer", value: "Emaar Properties" },
+	{ label: "Location", value: "Dubai, United Arab Emirates" },
+	{ label: "Community type", value: "Luxury residential villas & townhouses" },
+	{ label: "Lifestyle theme", value: "Polo & equestrian-inspired living" },
+	{ label: "Status", value: "Planned / under development" },
+] as const;
+
 const defaultSiteUrl = "https://emaar-grandpolo.piptan.ae";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl;
 const pagePath = "/";
@@ -26,8 +48,8 @@ const pageUrl = `${siteUrl}${pagePath}`;
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
-	title: `${data.title} | Piptan Properties`,
-	description: data.amenities.description,
+	title: `${data.meta.title} | Piptan Properties`,
+	description: data.meta.description,
 	keywords: [
 		"Grand Polo by Emaar",
 		"Emaar Grand Polo Dubai",
@@ -39,8 +61,8 @@ export const metadata: Metadata = {
 		canonical: pageUrl,
 	},
 	openGraph: {
-		title: `${data.title} | Piptan Properties`,
-		description: data.amenities.description,
+		title: `${data.meta.title} | Piptan Properties`,
+		description: data.meta.description,
 		url: pageUrl,
 		type: "website",
 		images: [
@@ -52,8 +74,8 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: `${data.title} | Piptan Properties`,
-		description: data.amenities.description,
+		title: `${data.meta.title} | Piptan Properties`,
+		description: data.meta.description,
 		images: [data.image],
 	},
 	robots: {
@@ -75,7 +97,7 @@ export default async function Page() {
 				name: "What is Grand Polo by Emaar?",
 				acceptedAnswer: {
 					"@type": "Answer",
-					text: data.amenities.description,
+					text: clientCopy.overview,
 				},
 			},
 			{
@@ -83,7 +105,7 @@ export default async function Page() {
 				name: "Where is Emaar Grand Polo located?",
 				acceptedAnswer: {
 					"@type": "Answer",
-					text: data.location.description,
+					text: clientCopy.location,
 				},
 			},
 			{
@@ -91,7 +113,7 @@ export default async function Page() {
 				name: "What amenities are offered at Grand Polo?",
 				acceptedAnswer: {
 					"@type": "Answer",
-					text: data.amenities.description,
+					text: clientCopy.lifestyle,
 				},
 			},
 			{
@@ -110,8 +132,8 @@ export default async function Page() {
 		"@type": "WebPage",
 		"@id": `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: `${data.title} | Piptan Properties`,
-		description: data.amenities.description,
+		name: `${data.meta.title} | Piptan Properties`,
+		description: data.meta.description,
 		breadcrumb: {
 			"@type": "BreadcrumbList",
 			itemListElement: [
@@ -221,33 +243,60 @@ export default async function Page() {
 				/> */}
 			</section>
 			<section
-				aria-labelledby="grandpolo-amenities-heading"
-				className="container mx-auto px-4 py-12 sm:px-6 lg:px-8"
-				id="amenities"
+				aria-labelledby="grandpolo-overview-heading"
+				className="container mx-auto px-4 py-12 sm:px-6 sm:py-16 md:py-20"
+				id="overview"
 			>
-				<h2
-					className="font-display font-medium text-3xl sm:text-4xl"
-					id="grandpolo-amenities-heading"
-				>
-					{data.amenities.title}
-				</h2>
-				<p className="mt-4 font-medium text-lg leading-relaxed sm:text-xl">
-					{data.amenities.description}
-				</p>
-				<ul className="mt-8 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
-					{data.amenities.lists.map((list) => (
-						<li key={list.value}>
-							<h3 className="font-display font-medium text-2xl">
-								{list.value}
-							</h3>
-							<p className="font-light text-white/70">{list.label}</p>
-						</li>
-					))}
-				</ul>
+				<div className="grid items-start gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+					<div className="h-fit md:sticky md:top-28">
+						<Badge className="bg-white/95 px-4 py-1 font-semibold text-stone-900 text-xs uppercase tracking-[0.22em]">
+							Grand Polo by Emaar
+						</Badge>
+						<h2
+							className="mt-5 font-display font-medium text-3xl tracking-tight sm:text-4xl md:text-5xl"
+							id="grandpolo-overview-heading"
+						>
+							Luxury polo-inspired living in Dubai
+						</h2>
+						<p className="mt-5 text-lg text-white/85 leading-relaxed">
+							{clientCopy.overview}
+						</p>
+						<p className="mt-4 text-base text-white/70 leading-relaxed">
+							{clientCopy.concept}
+						</p>
+					</div>
+					<aside
+						aria-label="Key facts about Grand Polo"
+						className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_18px_45px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-8"
+					>
+						<h3 className="font-display font-medium text-white text-xl sm:text-2xl">
+							Key facts
+						</h3>
+						<p className="mt-2 text-sm text-white/60">
+							A boutique, equestrian-inspired community crafted around space,
+							privacy, and resort-style green living.
+						</p>
+						<dl className="mt-6 grid grid-cols-2 gap-4">
+							{clientKeyFacts.map((fact) => (
+								<div
+									className="rounded-xl border border-white/10 bg-black/30 p-4"
+									key={fact.label}
+								>
+									<dt className="font-semibold text-[0.7rem] text-white/55 uppercase tracking-[0.22em]">
+										{fact.label}
+									</dt>
+									<dd className="mt-2 font-medium text-base text-white">
+										{fact.value}
+									</dd>
+								</div>
+							))}
+						</dl>
+					</aside>
+				</div>
 			</section>
 			<section
 				aria-labelledby="grandpolo-videos-heading"
-				className="container mx-auto px-4 pb-12 sm:px-6 lg:px-8"
+				className="pb-12"
 				id="videos"
 			>
 				<h2 className="sr-only" id="grandpolo-videos-heading">
@@ -264,6 +313,38 @@ export default async function Page() {
 					title="Intro Video"
 				/>
 			</section>
+			<section
+				aria-labelledby="grandpolo-amenities-heading"
+				className="container mx-auto px-4 py-12 sm:px-6 lg:px-8"
+				id="amenities"
+			>
+				<Badge className="bg-white px-4 py-1 font-semibold text-stone-900 text-xs uppercase tracking-[0.22em]">
+					Lifestyle &amp; amenities
+				</Badge>
+				<h2
+					className="mt-4 font-display font-medium text-3xl sm:text-4xl"
+					id="grandpolo-amenities-heading"
+				>
+					{data.amenities.title}
+				</h2>
+				<p className="mt-4 font-medium text-lg text-white/85 leading-relaxed sm:text-xl">
+					{clientCopy.lifestyle}
+				</p>
+				<p className="mt-4 font-light text-base text-white/75 leading-relaxed sm:text-lg">
+					{data.amenities.description}
+				</p>
+				<ul className="mt-8 grid grid-cols-2 gap-6 sm:mt-12 lg:grid-cols-4">
+					{data.amenities.lists.map((list) => (
+						<li key={list.value}>
+							<h3 className="font-display font-medium text-2xl">
+								{list.value}
+							</h3>
+							<p className="font-light text-white/70">{list.label}</p>
+						</li>
+					))}
+				</ul>
+			</section>
+
 			<section
 				aria-labelledby="grandpolo-about-heading"
 				className="container mx-auto grid grid-cols-1 items-center gap-8 px-4 py-12 sm:gap-12 sm:px-6 sm:py-16 md:py-20 lg:grid-cols-[0.75fr_1fr] lg:px-8"
@@ -375,9 +456,12 @@ export default async function Page() {
 						>
 							{data.location.title}
 						</h2>
-						<p className="font-light text-lg text-white/80">
-							{data.location.description}
-						</p>
+						<div className="space-y-4 text-lg text-white/80">
+							<p>{clientCopy.location}</p>
+							<p className="font-light text-base text-white/75 sm:text-lg">
+								{data.location.description}
+							</p>
+						</div>
 					</div>
 					<div className="relative mt-12">
 						<div className="relative aspect-video overflow-hidden rounded-lg">
@@ -414,65 +498,83 @@ export default async function Page() {
 					</ul>
 				</div>
 			</section>
-
-			<section
-				aria-label="Frequently asked questions"
-				className="bg-stone-950 px-4 pb-16 sm:px-6 lg:px-8"
-			>
-				<div className="container mx-auto max-w-4xl">
-					<h2 className="mb-6 font-display font-medium text-3xl text-white sm:text-4xl">
-						Frequently Asked Questions
-					</h2>
-					<Accordion className="space-y-4" useSemanticHTML>
-						<AccordionItem
-							className="rounded-lg border border-white/10 bg-white/5 px-4"
-							value="about"
+			<div className="border-border/20 border-y bg-stone-900/70 px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+				<div className="container mx-auto grid grid-cols-1 gap-8 md:grid-cols-2">
+					<section
+						aria-labelledby="grandpolo-market-heading"
+						id="market-significance"
+					>
+						<Badge className="bg-white px-4 py-1 font-semibold text-stone-900 text-xs uppercase tracking-[0.22em]">
+							Market significance
+						</Badge>
+						<h2
+							className="mt-4 font-display font-medium text-3xl text-white tracking-tight sm:text-4xl"
+							id="grandpolo-market-heading"
 						>
-							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
-								What is Grand Polo by Emaar?
-							</AccordionTrigger>
-							<AccordionContent className="text-white/80">
-								{data.amenities.description}
-							</AccordionContent>
-						</AccordionItem>
-						<AccordionItem
-							className="rounded-lg border border-white/10 bg-white/5 px-4"
-							value="location"
-						>
-							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
-								Where is Grand Polo located in Dubai?
-							</AccordionTrigger>
-							<AccordionContent className="text-white/80">
-								{data.location.description}
-							</AccordionContent>
-						</AccordionItem>
-						<AccordionItem
-							className="rounded-lg border border-white/10 bg-white/5 px-4"
-							value="amenities"
-						>
-							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
-								What amenities are available for residents at Grand Polo?
-							</AccordionTrigger>
-							<AccordionContent className="text-white/80">
-								The master community spans over 5.54 million sq m and includes
-								vast open spaces, polo fields, stables, a clubhouse, mixed-use
-								areas and a wide range of premium residential clusters.
-							</AccordionContent>
-						</AccordionItem>
-						<AccordionItem
-							className="rounded-lg border border-white/10 bg-white/5 px-4"
-							value="payment"
-						>
-							<AccordionTrigger className="text-white hover:text-white hover:no-underline">
-								What is the payment plan for Grand Polo by Emaar?
-							</AccordionTrigger>
-							<AccordionContent className="text-white/80">
-								{data.paymentPlan.description}
-							</AccordionContent>
-						</AccordionItem>
-					</Accordion>
+							A flagship, lifestyle-led community by Emaar
+						</h2>
+						<p className="mt-5 text-lg text-white/85 leading-relaxed">
+							{clientCopy.market}
+						</p>
+					</section>
+					<section aria-label="Frequently asked questions">
+						<div className="container mx-auto max-w-xl">
+							<h2 className="mb-6 font-display font-medium text-3xl text-white sm:text-4xl">
+								Frequently Asked Questions
+							</h2>
+							<Accordion className="space-y-4" defaultValue={["about"]}>
+								<AccordionItem
+									className="rounded-lg border border-white/10 bg-white/5 px-4"
+									value="about"
+								>
+									<AccordionTrigger className="text-white hover:text-white hover:no-underline">
+										What is Grand Polo by Emaar?
+									</AccordionTrigger>
+									<AccordionContent className="text-white/80">
+										{data.amenities.description}
+									</AccordionContent>
+								</AccordionItem>
+								<AccordionItem
+									className="rounded-lg border border-white/10 bg-white/5 px-4"
+									value="location"
+								>
+									<AccordionTrigger className="text-white hover:text-white hover:no-underline">
+										Where is Grand Polo located in Dubai?
+									</AccordionTrigger>
+									<AccordionContent className="text-white/80">
+										{data.location.description}
+									</AccordionContent>
+								</AccordionItem>
+								<AccordionItem
+									className="rounded-lg border border-white/10 bg-white/5 px-4"
+									value="amenities"
+								>
+									<AccordionTrigger className="text-white hover:text-white hover:no-underline">
+										What amenities are available for residents at Grand Polo?
+									</AccordionTrigger>
+									<AccordionContent className="text-white/80">
+										The master community spans over 5.54 million sq m and
+										includes vast open spaces, polo fields, stables, a
+										clubhouse, mixed-use areas and a wide range of premium
+										residential clusters.
+									</AccordionContent>
+								</AccordionItem>
+								<AccordionItem
+									className="rounded-lg border border-white/10 bg-white/5 px-4"
+									value="payment"
+								>
+									<AccordionTrigger className="text-white hover:text-white hover:no-underline">
+										What is the payment plan for Grand Polo by Emaar?
+									</AccordionTrigger>
+									<AccordionContent className="text-white/80">
+										{data.paymentPlan.description}
+									</AccordionContent>
+								</AccordionItem>
+							</Accordion>
+						</div>
+					</section>
 				</div>
-			</section>
+			</div>
 
 			<Script suppressHydrationWarning type="application/ld+json">
 				{JSON.stringify([webPageSchema, faqSchema])}

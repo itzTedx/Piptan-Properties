@@ -2,6 +2,11 @@ export const OASIS = {
 	slug: "oasis",
 	title: "THE OASIS by EMAAR",
 	image: "/oasis/hero-1.webp",
+	meta: {
+		title: "The Oasis by Emaar — Luxury Waterfront Villas in Dubai",
+		description:
+			"Explore The Oasis by Emaar, a premium waterfront villa community in Dubai. Investment insights, location advantages, and project details by Piptan.",
+	},
 
 	sections: [
 		{
@@ -120,18 +125,54 @@ export const OASIS = {
 	},
 
 	gallery: [
-		{ src: "/oasis/oasis-1.webp", alt: "THE OASIS by EMAAR waterfront community and villas from above" },
-		{ src: "/oasis/oasis-2.webp", alt: "Luxury villa exterior and landscaped gardens at THE OASIS" },
-		{ src: "/oasis/oasis-3.webp", alt: "Serene waterways and green spaces at Emaar The Oasis" },
-		{ src: "/oasis/oasis-4.webp", alt: "Residential villa and pool area at THE OASIS by EMAAR" },
-		{ src: "/oasis/oasis-5.webp", alt: "Community landscaping and open spaces at The Oasis Dubai" },
-		{ src: "/oasis/oasis-6.webp", alt: "Waterfront view and architecture at THE OASIS" },
-		{ src: "/oasis/oasis-7.webp", alt: "Luxury mansion and outdoor living at Emaar The Oasis" },
-		{ src: "/oasis/oasis-8.webp", alt: "Gardens and villa facade at THE OASIS by EMAAR" },
-		{ src: "/oasis/oasis-9.webp", alt: "Waterway and villa community view at The Oasis Dubai" },
-		{ src: "/oasis/oasis-10.webp", alt: "Landscaped park and jogging track at THE OASIS" },
-		{ src: "/oasis/oasis-11.webp", alt: "Villa exterior and private outdoor space at Emaar The Oasis" },
-		{ src: "/oasis/oasis-12.webp", alt: "Aerial view of THE OASIS by EMAAR community and greenery" },
+		{
+			src: "/oasis/oasis-1.webp",
+			alt: "THE OASIS by EMAAR waterfront community and villas from above",
+		},
+		{
+			src: "/oasis/oasis-2.webp",
+			alt: "Luxury villa exterior and landscaped gardens at THE OASIS",
+		},
+		{
+			src: "/oasis/oasis-3.webp",
+			alt: "Serene waterways and green spaces at Emaar The Oasis",
+		},
+		{
+			src: "/oasis/oasis-4.webp",
+			alt: "Residential villa and pool area at THE OASIS by EMAAR",
+		},
+		{
+			src: "/oasis/oasis-5.webp",
+			alt: "Community landscaping and open spaces at The Oasis Dubai",
+		},
+		{
+			src: "/oasis/oasis-6.webp",
+			alt: "Waterfront view and architecture at THE OASIS",
+		},
+		{
+			src: "/oasis/oasis-7.webp",
+			alt: "Luxury mansion and outdoor living at Emaar The Oasis",
+		},
+		{
+			src: "/oasis/oasis-8.webp",
+			alt: "Gardens and villa facade at THE OASIS by EMAAR",
+		},
+		{
+			src: "/oasis/oasis-9.webp",
+			alt: "Waterway and villa community view at The Oasis Dubai",
+		},
+		{
+			src: "/oasis/oasis-10.webp",
+			alt: "Landscaped park and jogging track at THE OASIS",
+		},
+		{
+			src: "/oasis/oasis-11.webp",
+			alt: "Villa exterior and private outdoor space at Emaar The Oasis",
+		},
+		{
+			src: "/oasis/oasis-12.webp",
+			alt: "Aerial view of THE OASIS by EMAAR community and greenery",
+		},
 	],
 };
 
@@ -139,7 +180,11 @@ export const GRAND_POLO = {
 	slug: "grand-polo",
 	title: "GRAND POLO by EMAAR",
 	image: "/grand-polo/grand-polo-hero.webp",
-
+	meta: {
+		title: "Grand Polo by Emaar — Equestrian-Inspired Luxury Villas in Dubai",
+		description:
+			"Discover Grand Polo by Emaar, a luxurious equestrian-inspired villa community in Dubai. Explore investment opportunities, location benefits, and project highlights with Piptan.",
+	},
 	sections: [
 		{
 			slug: "amenities",
@@ -272,22 +317,73 @@ export const GRAND_POLO = {
 	},
 
 	gallery: [
-		{ src: "/grand-polo/polo-1.webp", alt: "GRAND POLO by EMAAR community and equestrian lifestyle view" },
-		{ src: "/grand-polo/polo-2.webp", alt: "Luxury villa exterior and architecture at Grand Polo Club" },
-		{ src: "/grand-polo/polo-3.webp", alt: "Equestrian facilities and polo grounds at GRAND POLO" },
-		{ src: "/grand-polo/polo-4.webp", alt: "Residential villa and landscaped gardens at Grand Polo by Emaar" },
-		{ src: "/grand-polo/polo-5.webp", alt: "Masterplan view of GRAND POLO community and open spaces" },
-		{ src: "/grand-polo/polo-6.webp", alt: "Villa facade and outdoor living at Grand Polo Club Dubai" },
-		{ src: "/grand-polo/polo-7.webp", alt: "Polo-inspired luxury living and green landscapes at GRAND POLO" },
-		{ src: "/grand-polo/polo-8.webp", alt: "Elegant residence and driveway at GRAND POLO by EMAAR" },
-		{ src: "/grand-polo/polo-9.webp", alt: "Community amenities and villa cluster at Grand Polo" },
-		{ src: "/grand-polo/polo-10.webp", alt: "Regal villa design and gardens at GRAND POLO" },
-		{ src: "/grand-polo/polo-11.webp", alt: "Aerial view of Grand Polo Club community and Dubai Hills area" },
-		{ src: "/grand-polo/polo-12.webp", alt: "Luxury mansion and pool at GRAND POLO by EMAAR" },
-		{ src: "/grand-polo/polo-13.webp", alt: "Equestrian opulence and villa exterior at Grand Polo" },
-		{ src: "/grand-polo/polo-14.webp", alt: "Landscaped grounds and residence at GRAND POLO" },
-		{ src: "/grand-polo/polo-15.webp", alt: "Villa and open spaces at Grand Polo Club by Emaar" },
-		{ src: "/grand-polo/polo-16.webp", alt: "Architectural detail and luxury living at GRAND POLO" },
-		{ src: "/grand-polo/polo-17.webp", alt: "Community view and greenery at GRAND POLO by EMAAR" },
+		{
+			src: "/grand-polo/polo-1.webp",
+			alt: "GRAND POLO by EMAAR community and equestrian lifestyle view",
+		},
+		{
+			src: "/grand-polo/polo-2.webp",
+			alt: "Luxury villa exterior and architecture at Grand Polo Club",
+		},
+		{
+			src: "/grand-polo/polo-3.webp",
+			alt: "Equestrian facilities and polo grounds at GRAND POLO",
+		},
+		{
+			src: "/grand-polo/polo-4.webp",
+			alt: "Residential villa and landscaped gardens at Grand Polo by Emaar",
+		},
+		{
+			src: "/grand-polo/polo-5.webp",
+			alt: "Masterplan view of GRAND POLO community and open spaces",
+		},
+		{
+			src: "/grand-polo/polo-6.webp",
+			alt: "Villa facade and outdoor living at Grand Polo Club Dubai",
+		},
+		{
+			src: "/grand-polo/polo-7.webp",
+			alt: "Polo-inspired luxury living and green landscapes at GRAND POLO",
+		},
+		{
+			src: "/grand-polo/polo-8.webp",
+			alt: "Elegant residence and driveway at GRAND POLO by EMAAR",
+		},
+		{
+			src: "/grand-polo/polo-9.webp",
+			alt: "Community amenities and villa cluster at Grand Polo",
+		},
+		{
+			src: "/grand-polo/polo-10.webp",
+			alt: "Regal villa design and gardens at GRAND POLO",
+		},
+		{
+			src: "/grand-polo/polo-11.webp",
+			alt: "Aerial view of Grand Polo Club community and Dubai Hills area",
+		},
+		{
+			src: "/grand-polo/polo-12.webp",
+			alt: "Luxury mansion and pool at GRAND POLO by EMAAR",
+		},
+		{
+			src: "/grand-polo/polo-13.webp",
+			alt: "Equestrian opulence and villa exterior at Grand Polo",
+		},
+		{
+			src: "/grand-polo/polo-14.webp",
+			alt: "Landscaped grounds and residence at GRAND POLO",
+		},
+		{
+			src: "/grand-polo/polo-15.webp",
+			alt: "Villa and open spaces at Grand Polo Club by Emaar",
+		},
+		{
+			src: "/grand-polo/polo-16.webp",
+			alt: "Architectural detail and luxury living at GRAND POLO",
+		},
+		{
+			src: "/grand-polo/polo-17.webp",
+			alt: "Community view and greenery at GRAND POLO by EMAAR",
+		},
 	],
 };

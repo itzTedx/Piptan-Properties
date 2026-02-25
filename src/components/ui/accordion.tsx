@@ -1,9 +1,10 @@
 "use client";
 
+import { createContext, useContext } from "react";
+
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import { ArrowDown01Icon, ArrowUp01Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { createContext, useContext } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -34,9 +35,10 @@ function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
 			data-slot="accordion-item"
 			render={
 				useSemanticHTML
-					? (itemProps: React.HTMLAttributes<HTMLElement>, state: { open?: boolean }) => (
-							<details {...itemProps} open={state?.open} />
-						)
+					? (
+							itemProps: React.HTMLAttributes<HTMLElement>,
+							state: { open?: boolean }
+						) => <details {...itemProps} open={state?.open} />
 					: undefined
 			}
 			{...props}
@@ -117,7 +119,9 @@ function AccordionContent({
 			data-slot="accordion-content"
 			render={
 				useSemanticHTML
-					? (panelProps: React.HTMLAttributes<HTMLElement>) => <div {...panelProps} />
+					? (panelProps: React.HTMLAttributes<HTMLElement>) => (
+							<div {...panelProps} />
+						)
 					: undefined
 			}
 			{...props}
