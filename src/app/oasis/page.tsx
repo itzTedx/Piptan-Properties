@@ -48,7 +48,7 @@ const pageUrl = `${siteUrl}${pagePath}`;
 
 export const metadata: Metadata = {
 	metadataBase: new URL(siteUrl),
-	title: `${data.meta.title} | Piptan Properties`,
+	title: data.meta.title,
 	description: data.meta.description,
 	keywords: [
 		"The Oasis by Emaar",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 		canonical: pageUrl,
 	},
 	openGraph: {
-		title: `${data.meta.title} | Piptan Properties`,
+		title: data.meta.title,
 		description: data.meta.description,
 		url: pageUrl,
 		type: "website",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: `${data.meta.title} | Piptan Properties`,
+		title: data.meta.title,
 		description: data.meta.description,
 		images: [data.image],
 	},
@@ -140,7 +140,7 @@ export default async function OasisPage() {
 		"@type": "WebPage",
 		"@id": `${pageUrl}#webpage`,
 		url: pageUrl,
-		name: `${data.meta.title} | Piptan Properties`,
+		name: data.meta.title,
 		description: data.meta.description,
 		breadcrumb: {
 			"@type": "BreadcrumbList",
