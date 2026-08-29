@@ -21,10 +21,9 @@ import { OASIS } from "@/data/constants";
 const data = OASIS;
 const clientCopy = {
 	overview:
-		"The Oasis by Emaar is an exclusive residential community designed for those who value privacy, space and a refined connection with nature. Surrounded by lush landscapes, tranquil waterways and beautifully planned open spaces, the development offers a peaceful setting for luxury villa and mansion living in Dubai.",
+		"The Oasis by Emaar is a large-scale luxury real estate development by Emaar Properties in Dubai, United Arab Emirates. Announced in 2023, it is one of Emaar’s most ambitious waterfront villa communities, blending green landscapes, lagoons, and resort-style living for global and local investors.",
 	masterplan:
-		"The community combines contemporary architecture with resort-inspired amenities, creating an environment where residents can enjoy spacious homes, greenery and outdoor living while staying connected to Dubai’s key destinations. Its carefully planned surroundings make The Oasis an attractive choice for both end users and investors looking for premium residential opportunities.",
-		forBuyers: "For buyers exploring luxury real estate opportunities, working with a trusted property investment advisor in Dubai can help evaluate the project's location, property type, investment potential and long-term value. The Oasis offers a distinctive proposition for those seeking an upscale lifestyle in one of Dubai's growing residential communities.",
+		"Spanning over 100 million square feet, The Oasis is master-planned around tranquil canals, crystal lagoons, and lush parks. The community features villas, mansions, and premium residences designed by world‑renowned architects, integrating contemporary architecture with nature-focused urban planning close to Downtown Dubai and Dubai Marina.",
 	lifestyle:
 		"Residents at The Oasis will enjoy a resort-inspired lifestyle with access to multiple lagoons, swimming pools, retail promenades, and fine-dining venues. Jogging and cycling tracks, landscaped gardens, and exclusive clubhouses create a wellness-focused environment that feels like a private retreat within the city.",
 	investment:
@@ -258,9 +257,6 @@ export default async function OasisPage() {
 						</p>
 						<p className="mt-4 text-base text-white/75 leading-relaxed">
 							{clientCopy.masterplan}
-						</p>
-						<p className="mt-4 text-base text-white/75 leading-relaxed">
-							{clientCopy.forBuyers}
 						</p>
 					</div>
 					<aside

@@ -39,11 +39,11 @@ export const OASIS = {
 		slug: "about",
 		title: "About Emaar The Oasis",
 		image: "/oasis/about.webp",
-		description: `Experience refined waterfront living at The Oasis by Emaar, an exclusive retreat surrounded by lush landscapes and serene waterways. 
-		
-		Featuring luxurious mansions and villas designed by world-renowned architects, each residence blends elegance with comfort. Enjoy seamless indoor-outdoor living, world-class amenities, and personalized services that elevate everyday moments. With access to four international golf courses, a clubhouse, private beach, healthcare centre, and expansive open spaces, Emaar The Oasis Dubai redefines sophistication.
-			
-			Discover a lifestyle of timeless charm, indulgence, and tranquility - welcome home to Emaar The Oasis.`,
+		description: `The Oasis by Emaar is an exclusive residential community designed for those who value privacy, space and a refined connection with nature. Surrounded by lush landscapes, tranquil waterways and beautifully planned open spaces, the development offers a peaceful setting for luxury villa and mansion living in Dubai.
+
+The community combines contemporary architecture with resort-inspired amenities, creating an environment where residents can enjoy spacious homes, greenery and outdoor living while staying connected to Dubai’s key destinations. Its carefully planned surroundings make The Oasis an attractive choice for both end users and investors looking for premium residential opportunities.
+
+For buyers exploring luxury real estate opportunities, working with a trusted *property investment advisor in Dubai* can help evaluate the project's location, property type, investment potential and long-term value. The Oasis offers a distinctive proposition for those seeking an upscale lifestyle in one of Dubai's growing residential communities.`,
 	},
 	amenities: {
 		title: "Amenities",
@@ -255,11 +255,11 @@ export const GRAND_POLO = {
 		slug: "about",
 		title: "About Emaar The Oasis",
 		image: "/oasis/about.webp",
-		description: `Experience refined waterfront living at The Oasis by Emaar, an exclusive retreat surrounded by lush landscapes and serene waterways. Featuring luxurious mansions and villas designed by world-renowned architects, each residence blends elegance with comfort. 
-		
-		Enjoy seamless indoor-outdoor living, world-class amenities, and personalized services that elevate everyday moments. With access to four international golf courses, a clubhouse, private beach, healthcare centre, and expansive open spaces, Emaar The Oasis Dubai redefines sophistication. 
-			
-			Discover a lifestyle of timeless charm, indulgence, and tranquility - welcome home to Emaar The Oasis.`,
+		description: `Grand Polo by Emaar is a premium residential community in Dubai built around a unique polo and equestrian lifestyle. The development features luxury villas and townhouses set within landscaped surroundings, with polo fields and equestrian facilities forming an important part of the community.
+
+The project is designed for buyers who want more space, privacy and a quieter residential environment without giving up access to the rest of Dubai. Residents can enjoy green open areas, leisure facilities and a community setting centred around polo and outdoor living.
+
+For property buyers and investors, Grand Polo also presents an opportunity to consider a premium Emaar development in Dubai's expanding residential market. A *property investment advisor in Dubai* can help investors understand the project, compare available properties and assess factors such as location, demand and potential long-term value before making an investment decision.`,
 	},
 
 	paymentPlan: {

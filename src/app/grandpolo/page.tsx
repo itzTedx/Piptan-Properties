@@ -22,10 +22,9 @@ const data = GRAND_POLO;
 
 const clientCopy = {
 	overview:
-		"Grand Polo by Emaar is a premium residential community in Dubai built around a unique polo and equestrian lifestyle. The development features luxury villas and townhouses set within landscaped surroundings, with polo fields and equestrian facilities forming an important part of the community.",
+		"Grand Polo is a luxury real estate development by Emaar Properties, planned within Dubai’s upscale communities. Designed to blend equestrian-inspired living with contemporary architecture, the project emphasizes exclusivity, open green spaces, and proximity to premier leisure and lifestyle destinations.",
 	concept:
-		"The project is designed for buyers who want more space, privacy and a quieter residential environment without giving up access to the rest of Dubai. Residents can enjoy green open areas, leisure facilities and a community setting centred around polo and outdoor living.",
-		forBuyers: "For property buyers and investors, Grand Polo also presents an opportunity to consider a premium Emaar development in Dubai's expanding residential market. A *property investment advisor in Dubai* can help investors understand the project, compare available properties and assess factors such as location, demand and potential long-term value before making an investment decision.",
+		"Grand Polo draws inspiration from the sport of polo and Dubai’s heritage of equestrian excellence. The master plan envisions spacious villas and townhouses surrounded by landscaped fields, riding trails, and leisure facilities, with modern architecture that pairs clean lines with natural textures.",
 	location:
 		"Located near Emaar’s established neighborhoods such as Arabian Ranches and Dubai Polo & Equestrian Club, Grand Polo offers direct access to Emirates Road and Al Qudra Road, placing residents close to top schools, retail centers, and everyday conveniences while preserving a resort-style atmosphere.",
 	lifestyle:
@@ -264,9 +263,6 @@ export default async function Page() {
 						</p>
 						<p className="mt-4 text-base text-white/70 leading-relaxed">
 							{clientCopy.concept}
-						</p>
-						<p className="mt-4 text-base text-white/70 leading-relaxed">
-							{clientCopy.forBuyers}
 						</p>
 					</div>
 					<aside
